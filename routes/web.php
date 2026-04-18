@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return '<h1>Моя страница</h1>';
-});
+Route::get('/', [MainController::class, 'index'])->name('home');

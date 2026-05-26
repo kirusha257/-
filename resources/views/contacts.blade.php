@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ресторан Вкусно | Главная</title>
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ресторан Вкусно | Контакты</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html {
+                html {
             scroll-behavior: smooth;
         }
 
@@ -18,101 +16,97 @@
             scroll-margin-top: 170px;
         }
         body {
-            font-family: 'Cormorant Garamond', serif;
-            background-color: #fef9f0;
-            color: #2c2b28;
-            line-height: 1.5;
-        }
-        .header {
-            background-color: #1a1a1a;
-            padding: 0.8rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .logo {
-            flex-shrink: 0;
-        }
-        .logo img {
-            max-height: 50px;
-            width: auto;
-            display: block;
-        }
-        .nav {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        .nav-list {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-item {
-            position: relative;
-        }
-        .nav-item > a {
-            color: #f5e7d9;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            display: inline-block;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-        .nav-item > a:hover, .nav-item > a.active {
-            color: #d4af37;
-        }
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #2a2a2a;
-            min-width: 180px;
-            border-radius: 8px;
-            list-style: none;
-            padding: 0.5rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .dropdown li a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: #f5e7d9;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .dropdown li a:hover {
-            background-color: #d4af37;
-            color: #1a1a1a;
-        }
+        font-family: 'Cormorant Garamond', serif;
+        background-color: #fef9f0;
+        color: #2c2b28;
+        line-height: 1.5;
+    }
+    .header {
+        background-color: #1a1a1a;
+        padding: 0.8rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .logo {
+        flex-shrink: 0;
+    }
+    .logo img {
+        max-height: 50px;
+        width: auto;
+        display: block;
+    }
+    .nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .nav-list {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-item {
+        position: relative;
+    }
+    .nav-item > a {
+        color: #f5e7d9;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        display: inline-block;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+    }
+    .nav-item > a:hover, .nav-item > a.active {
+        color: #d4af37;
+    }
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #2a2a2a;
+        min-width: 180px;
+        border-radius: 8px;
+        list-style: none;
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .nav-item:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .dropdown li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #f5e7d9;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    .dropdown li a:hover {
+        background-color: #d4af37;
+        color: #1a1a1a;
+    }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-        }
-        section {
-            margin-bottom: 3rem;
-            scroll-margin-top: 100px;
         }
         .section-title {
             font-size: 2rem;
@@ -121,137 +115,129 @@
             margin-bottom: 1.5rem;
             color: #2c2b28;
         }
-        .about-text {
-            font-size: 1.1rem;
-            background: #fff7ef;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        /* Галерея */
-        .gallery-section {
-            margin-bottom: 3rem;
-        }
-        .gallery-slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .swiper {
-            width: 100%;
-            height: 500px;
-        }
-        .swiper-slide {
-            position: relative;
-        }
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 40px 20px 20px;
-            text-align: center;
-        }
-        .slide-caption h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        .slide-caption p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #d4af37;
-        }
-        .swiper-pagination-bullet-active {
-            background: #d4af37;
-        }
-        
-        .staff-grid {
-            display: flex;
-            flex-wrap: wrap;
+        .contacts-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            justify-content: center;
+            margin-bottom: 2rem;
         }
-        .staff-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            width: 220px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-        .staff-card:hover { transform: translateY(-5px); }
-        .staff-photo {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background-color: #e2d5c0;
-        }
-        .staff-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0.8rem 0 0.2rem;
-        }
-        .staff-position {
-            color: #b8860b;
-            margin-bottom: 1rem;
-        }
-        .reviews-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-        .review-card {
+        .info-card {
             background: white;
             border-radius: 20px;
             padding: 1.5rem;
-            flex: 1 1 280px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border: 1px solid #f0e1d0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .review-author {
-            font-weight: bold;
-            color: #b45f1b;
-        }
-        .review-rating {
+        .info-card h3 {
             color: #d4af37;
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
-        .review-text {
-            font-style: italic;
-            color: #3e3a35;
-        }
-
-        .social-links {
+        .info-item {
             display: flex;
+            align-items: center;
             gap: 1rem;
-            flex-shrink: 0;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
         }
-        .social-link {
-            background-color: transparent;
-            color: #f5e7d9;
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
-            text-decoration: none;
+        .info-icon {
+            font-size: 1.5rem;
+            min-width: 40px;
+        }
+        .info-text {
+            color: #333;
+        }
+        .info-text strong {
+            display: block;
+            color: #2c2b28;
+        }
+        .map-container {
+            background: white;
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            border: none;
+        }
+        .feedback-form {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c2b28;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: color 0.3s;
+            font-family: inherit;
         }
-        .social-link:hover {
-            color: #d4af37;
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #d4af37;
         }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 0.8rem;
+            background: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background: #ffd700;
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .social-links {
+        display: flex;
+        gap: 1rem;
+        flex-shrink: 0;
+    }
+    .social-link {
+        background-color: transparent;
+        color: #f5e7d9;
+        padding: 0.3rem 0.8rem;
+        border-radius: 40px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+    .social-link:hover {
+        color: #d4af37;
+    }
         .footer {
             background-color: #1a1a1a;
             color: #cbc3b5;
@@ -261,7 +247,7 @@
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            position: relative;
+            position: relative; /* ключевая штука */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -271,7 +257,7 @@
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
-            font-size: 0.9rem;
+            line-height: 1.6;
         }
         .footer-logo-click {
             cursor: pointer;
@@ -296,15 +282,10 @@
             pointer-events: none;
             z-index: 999;
         }
-        
-        /* Адаптив */
         @media (max-width: 768px) {
-            .swiper { height: 300px; }
-            .slide-caption h3 { font-size: 1.2rem; }
-            .slide-caption p { font-size: 0.8rem; }
-            .nav { position: static; transform: none; white-space: normal; }
-            .nav-list { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            .logo-area { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .contacts-wrapper {
+                grid-template-columns: 1fr;
+            }
         }
         /* ===== ТЁМНАЯ ТЕМА ===== */
 body.dark-theme {
@@ -469,6 +450,11 @@ body.dark-theme .theme-btn {
         font-size: 18px;
     }
 }
+body.dark-theme label { color: #c9a84c; }
+.info-text{
+    color: #c9a84c;
+}
+body.dark-theme .info-text strong { color: #d4af37; }
 /* ===== АДАПТИВНАЯ ШАПКА ===== */
 
 /* Планшеты (до 992px) */
@@ -589,7 +575,6 @@ body.dark-theme .theme-btn {
     }
 }
 
-
     </style>
 </head>
 <body>
@@ -641,81 +626,103 @@ body.dark-theme .theme-btn {
 </header>
 
 <main class="container">
-    <!-- О нас -->
-    <section id="about">
-        <h2 class="section-title">О нас</h2>
-        <div class="about-text">
-            {{ $about->content ?? 'Информация о ресторане временно недоступна. Пожалуйста, зайдите позже.' }}
-        </div>
-    </section>
-
-    <!-- Фотогалерея -->
-    <section id="gallery" class="gallery-section">
-        <div class="gallery-slider">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    @forelse($gallery as $photo)
-                    <div class="swiper-slide">
-                        <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
-                        @if($photo->title || $photo->description)
-                        <div class="slide-caption">
-                            <h3>{{ $photo->title }}</h3>
-                            <p>{{ $photo->description }}</p>
-                        </div>
-                        @endif
-                    </div>
-                    @empty
-                    <div class="swiper-slide">
-                        <img src="https://placehold.co/1200x500?text=Добавьте+фото+в+галерею" alt="Нет фото">
-                        <div class="slide-caption">
-                            <h3>Загрузите фото в админ-панели</h3>
-                            <p>Раздел "Управление галереей"</p>
-                        </div>
-                    </div>
-                    @endforelse
+    
+    
+    <div class="contacts-wrapper">
+        <!-- Контактная информация -->
+        <div class="info-card">
+            <h3>Свяжитесь с нами</h3>
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-text">
+                    <strong>Адрес</strong>
+                    {{ $contacts->address ?? 'улица Володарского, 19, Севастополь' }}
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Персонал -->
-    <section id="staff">
-        <h2 class="section-title">Персонал</h2>
-        <div class="staff-grid">
-            @forelse($staff as $person)
-            <div class="staff-card">
-                <img src="{{ $person->photo_url ? asset($person->photo_url) : 'https://placehold.co/400x400?text='.urlencode($person->name) }}" alt="{{ $person->name }}" class="staff-photo">
-                <div class="staff-name">{{ $person->name }}</div>
-                <div class="staff-position">{{ $person->position }}</div>
-            </div>
-            @empty
-                <p>Нет данных о персонале.</p>
-            @endforelse
-        </div>
-    </section>
-
-    <!-- Отзывы -->
-    <section id="reviews">
-        <h2 class="section-title">Отзывы</h2>
-        <div class="reviews-grid">
-            @forelse($reviews as $review)
-            <div class="review-card">
-                <div class="review-author">{{ $review->author }}</div>
-                <div class="review-rating">
-                    @for($i=1; $i<=5; $i++)
-                        @if($i <= $review->rating) ★ @else ☆ @endif
-                    @endfor
+            <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div class="info-text">
+                    <strong>Телефон</strong>
+                    {{ $contacts->phone ?? '+7 (495) 123-45-67' }}
                 </div>
-                <div class="review-text">«{{ $review->text }}»</div>
             </div>
-            @empty
-                <p>Пока нет отзывов.</p>
-            @endforelse
+            <div class="info-item">
+                <div class="info-icon">✉️</div>
+                <div class="info-text">
+                    <strong>Email</strong>
+                    <a href="mailto:{{ $contacts->email ?? 'vkusno@bk.ru' }}" style="color: #d4af37;">{{ $contacts->email ?? 'vkusno@bk.ru' }}</a>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon">🕑</div>
+                <div class="info-text">
+                    <strong>Режим работы</strong>
+                    {{ $contacts->work_hours ?? 'Пн–Вс: 12:00 – 00:00' }}
+                </div>
+            </div>
         </div>
-    </section>
+        
+        <!-- Карта -->
+        <div class="map-container" id="map">
+            <h3 style="margin-bottom: 1rem; color: #d4af37;">Схема проезда</h3>
+            <iframe 
+                src="https://yandex.ru/map-widget/v1/?ll=33.523159,44.606298&z=17&pt=33.523159,44.606298,pm2rdm"
+                allowfullscreen="true">
+            </iframe>
+        </div>
+    </div>
+    
+    <!-- Форма обратной связи -->
+    <div class="feedback-form" id="feedback">
+        <h3 style="color: #d4af37; margin-bottom: 1rem;">Обратная связь</h3>
+        
+        @if(session('feedback_success'))
+            <div class="success-message">
+                {{ session('feedback_success') }}
+            </div>
+        @endif
+        
+        <form method="POST" action="{{ route('contacts.feedback') }}">
+            @csrf
+            
+            <div class="form-group">
+                <label>Ваше имя <span class="required">*</span></label>
+                <input type="text" name="name" value="{{ old('name') }}" required>
+                @error('name') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
+            </div>
+            
+            <div class="form-group">
+                <label>Email для ответа <span class="required">*</span></label>
+                <input type="email" name="email" value="{{ old('email') }}" required>
+                @error('email') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
+            </div>
+            
+            <div class="form-group">
+                <label>Тема сообщения</label>
+                <input type="text" name="subject" value="{{ old('subject') }}">
+                @error('subject') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
+            </div>
+
+            <div class="form-group">
+                <label>Оценка</label>
+                <select name="rating" style="width: auto;">
+                    <option value="5">★★★★★ (5)</option>
+                    <option value="4">★★★★☆ (4)</option>
+                    <option value="3">★★★☆☆ (3)</option>
+                    <option value="2">★★☆☆☆ (2)</option>
+                    <option value="1">★☆☆☆☆ (1)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Сообщение <span class="required">*</span></label>
+                <textarea name="message" required>{{ old('message') }}</textarea>
+                @error('message') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
+            </div>
+            
+            <button type="submit" class="btn-submit">Отправить сообщение</button>
+        </form>
+    </div>
 </main>
 
 <footer class="footer">
@@ -732,8 +739,6 @@ body.dark-theme .theme-btn {
 
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     let clickCount = 0;
     let timeoutId = null;
@@ -756,27 +761,6 @@ body.dark-theme .theme-btn {
             window.location.href = "{{ route('admin.login') }}";
             clickCount = 0;
         }
-    });
-
-    // Инициализация слайдера Swiper с автопрокруткой
-    document.addEventListener('DOMContentLoaded', function() {
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            effect: 'slide',
-            speed: 800,
-        });
     });
 </script>
 <!-- Переключатель темы -->

@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ресторан Вкусно | Главная</title>
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ресторан Вкусно | Мероприятия</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,101 +16,97 @@
             scroll-margin-top: 170px;
         }
         body {
-            font-family: 'Cormorant Garamond', serif;
-            background-color: #fef9f0;
-            color: #2c2b28;
-            line-height: 1.5;
-        }
-        .header {
-            background-color: #1a1a1a;
-            padding: 0.8rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .logo {
-            flex-shrink: 0;
-        }
-        .logo img {
-            max-height: 50px;
-            width: auto;
-            display: block;
-        }
-        .nav {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        .nav-list {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-item {
-            position: relative;
-        }
-        .nav-item > a {
-            color: #f5e7d9;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            display: inline-block;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-        .nav-item > a:hover, .nav-item > a.active {
-            color: #d4af37;
-        }
+        font-family: 'Cormorant Garamond', serif;
+        background-color: #fef9f0;
+        color: #2c2b28;
+        line-height: 1.5;
+    }
+    .header {
+        background-color: #1a1a1a;
+        padding: 0.8rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .logo {
+        flex-shrink: 0;
+    }
+    .logo img {
+        max-height: 50px;
+        width: auto;
+        display: block;
+    }
+    .nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .nav-list {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-item {
+        position: relative;
+    }
+    .nav-item > a {
+        color: #f5e7d9;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        display: inline-block;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+    }
+    .nav-item > a:hover, .nav-item > a.active {
+        color: #d4af37;
+    }
         .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #2a2a2a;
-            min-width: 180px;
-            border-radius: 8px;
-            list-style: none;
-            padding: 0.5rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .dropdown li a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: #f5e7d9;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .dropdown li a:hover {
-            background-color: #d4af37;
-            color: #1a1a1a;
-        }
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #2a2a2a;
+        min-width: 180px;
+        border-radius: 8px;
+        list-style: none;
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .nav-item:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .dropdown li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #f5e7d9;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    .dropdown li a:hover {
+        background-color: #d4af37;
+        color: #1a1a1a;
+    }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-        }
-        section {
-            margin-bottom: 3rem;
-            scroll-margin-top: 100px;
         }
         .section-title {
             font-size: 2rem;
@@ -121,137 +115,97 @@
             margin-bottom: 1.5rem;
             color: #2c2b28;
         }
-        .about-text {
-            font-size: 1.1rem;
-            background: #fff7ef;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        /* Галерея */
-        .gallery-section {
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
             margin-bottom: 3rem;
         }
-        .gallery-slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .swiper {
-            width: 100%;
-            height: 500px;
-        }
-        .swiper-slide {
-            position: relative;
-        }
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 40px 20px 20px;
-            text-align: center;
-        }
-        .slide-caption h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        .slide-caption p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #d4af37;
-        }
-        .swiper-pagination-bullet-active {
-            background: #d4af37;
-        }
-        
-        .staff-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        .staff-card {
+        .event-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            width: 220px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .staff-card:hover { transform: translateY(-5px); }
-        .staff-photo {
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .event-photo {
             width: 100%;
             height: 220px;
             object-fit: cover;
             background-color: #e2d5c0;
         }
-        .staff-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0.8rem 0 0.2rem;
+        .event-content {
+            padding: 1.5rem;
         }
-        .staff-position {
-            color: #b8860b;
+        .event-date {
+            display: inline-block;
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+        }
+        .event-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            color: #2c2b28;
+        }
+        .event-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
             margin-bottom: 1rem;
         }
-        .reviews-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+        .event-link {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
         }
-        .review-card {
+        .event-link:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+        .past-section {
+            margin-top: 2rem;
+        }
+        .past-card {
             background: white;
             border-radius: 20px;
-            padding: 1.5rem;
-            flex: 1 1 280px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border: 1px solid #f0e1d0;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
-        .review-author {
-            font-weight: bold;
-            color: #b45f1b;
+        .past-card .event-photo {
+            height: 180px;
         }
-        .review-rating {
-            color: #d4af37;
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
-        }
-        .review-text {
-            font-style: italic;
-            color: #3e3a35;
-        }
-
         .social-links {
-            display: flex;
-            gap: 1rem;
-            flex-shrink: 0;
-        }
-        .social-link {
-            background-color: transparent;
-            color: #f5e7d9;
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        .social-link:hover {
-            color: #d4af37;
-        }
+        display: flex;
+        gap: 1rem;
+        flex-shrink: 0;
+    }
+    .social-link {
+        background-color: transparent;
+        color: #f5e7d9;
+        padding: 0.3rem 0.8rem;
+        border-radius: 40px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+    .social-link:hover {
+        color: #d4af37;
+    }
         .footer {
             background-color: #1a1a1a;
             color: #cbc3b5;
@@ -296,15 +250,12 @@
             pointer-events: none;
             z-index: 999;
         }
-        
-        /* Адаптив */
-        @media (max-width: 768px) {
-            .swiper { height: 300px; }
-            .slide-caption h3 { font-size: 1.2rem; }
-            .slide-caption p { font-size: 0.8rem; }
-            .nav { position: static; transform: none; white-space: normal; }
-            .nav-list { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            .logo-area { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        .empty-message {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            color: #999;
         }
         /* ===== ТЁМНАЯ ТЕМА ===== */
 body.dark-theme {
@@ -469,6 +420,67 @@ body.dark-theme .theme-btn {
         font-size: 18px;
     }
 }
+/* ===== ТЁМНАЯ ТЕМА - МЕРОПРИЯТИЯ ===== */
+body.dark-theme .event-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+}
+
+body.dark-theme .event-title {
+    color: #e0e0e0;
+}
+
+body.dark-theme .event-description {
+    color: #b0b0b0;
+}
+
+body.dark-theme .event-link {
+    background: #c9a84c;
+    color: #1a1a1a;
+}
+
+body.dark-theme .event-link:hover {
+    background: #d4af37;
+}
+
+body.dark-theme .empty-message {
+    background: #1e1e1e;
+    color: #a0a0a0;
+    border: 1px solid #333;
+}
+
+/* Модальное окно */
+body.dark-theme #eventModal > div {
+    background: #1e1e1e !important;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+body.dark-theme #eventModal .event-date {
+    background: #c9a84c;
+    color: #1a1a1a;
+}
+
+body.dark-theme #eventModal h2 {
+    color: #e0e0e0;
+}
+
+body.dark-theme #eventModal p {
+    color: #b0b0b0;
+}
+
+body.dark-theme #eventModal button {
+    color: #c9a84c;
+    background: transparent;
+}
+
+body.dark-theme #eventModal button:hover {
+    color: #d4af37;
+}
+
+body.dark-theme #eventModal {
+    background: rgba(0, 0, 0, 0.95);
+}
 /* ===== АДАПТИВНАЯ ШАПКА ===== */
 
 /* Планшеты (до 992px) */
@@ -589,8 +601,7 @@ body.dark-theme .theme-btn {
     }
 }
 
-
-    </style>
+</style>
 </head>
 <body>
 
@@ -641,80 +652,65 @@ body.dark-theme .theme-btn {
 </header>
 
 <main class="container">
-    <!-- О нас -->
-    <section id="about">
-        <h2 class="section-title">О нас</h2>
-        <div class="about-text">
-            {{ $about->content ?? 'Информация о ресторане временно недоступна. Пожалуйста, зайдите позже.' }}
-        </div>
-    </section>
-
-    <!-- Фотогалерея -->
-    <section id="gallery" class="gallery-section">
-        <div class="gallery-slider">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    @forelse($gallery as $photo)
-                    <div class="swiper-slide">
-                        <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
-                        @if($photo->title || $photo->description)
-                        <div class="slide-caption">
-                            <h3>{{ $photo->title }}</h3>
-                            <p>{{ $photo->description }}</p>
-                        </div>
+    <!-- Предстоящие мероприятия -->
+    <section id="upcoming">
+        <h2 class="section-title">Предстоящие мероприятия</h2>
+        
+        @if($upcomingEvents->count() > 0)
+            <div class="events-grid">
+                @foreach($upcomingEvents as $event)
+                    <div class="event-card">
+                        @if($event->photo_url)
+                            <img src="{{ $event->photo_url }}" alt="{{ $event->title }}" class="event-photo">
+                        @else
+                            <img src="https://placehold.co/400x220?text=Нет+фото" alt="Нет фото" class="event-photo">
                         @endif
-                    </div>
-                    @empty
-                    <div class="swiper-slide">
-                        <img src="https://placehold.co/1200x500?text=Добавьте+фото+в+галерею" alt="Нет фото">
-                        <div class="slide-caption">
-                            <h3>Загрузите фото в админ-панели</h3>
-                            <p>Раздел "Управление галереей"</p>
+                        <div class="event-content">
+                            <div class="event-date">{{ \Carbon\Carbon::parse($event->date)->format('d.m.Y') }}
+                                @if($event->start_time)
+                                    <span style="margin-left: 10px;">🕐 {{ \Carbon\Carbon::parse($event->start_time)->format('H:i') }}</span>
+                                @endif
+                            </div>
+                            <h3 class="event-title">{{ $event->title }}</h3>
+                            <p class="event-description">{{ $event->short_description }}</p>
+                            <a href="#" class="event-link" onclick="showEventDetails({{ $event->id }}, '{{ $event->title }}', '{{ $event->full_description ?? $event->short_description }}', '{{ \Carbon\Carbon::parse($event->date)->format('d.m.Y') }}@if($event->start_time) в {{ \Carbon\Carbon::parse($event->start_time)->format('H:i') }}@endif'); return false;">Подробнее →</a>
                         </div>
                     </div>
-                    @endforelse
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                @endforeach
             </div>
-        </div>
+        @else
+            <div class="empty-message">
+                <p>🎉 Скоро здесь появятся анонсы новых мероприятий!</p>
+                <p>Следите за обновлениями.</p>
+            </div>
+        @endif
     </section>
 
-    <!-- Персонал -->
-    <section id="staff">
-        <h2 class="section-title">Персонал</h2>
-        <div class="staff-grid">
-            @forelse($staff as $person)
-            <div class="staff-card">
-                <img src="{{ $person->photo_url ? asset($person->photo_url) : 'https://placehold.co/400x400?text='.urlencode($person->name) }}" alt="{{ $person->name }}" class="staff-photo">
-                <div class="staff-name">{{ $person->name }}</div>
-                <div class="staff-position">{{ $person->position }}</div>
+    <!-- Прошедшие мероприятия -->
+    <section id="past" class="past-section">
+        <h2 class="section-title">Прошедшие мероприятия</h2>
+        
+        @if($pastEvents->count() > 0)
+            <div class="events-grid">
+                @foreach($pastEvents as $event)
+                    <div class="event-card past-card">
+                        @if($event->photo_url)
+                            <img src="{{ $event->photo_url }}" alt="{{ $event->title }}" class="event-photo">
+                        @else
+                            <img src="https://placehold.co/400x180?text=Нет+фото" alt="Нет фото" class="event-photo">
+                        @endif
+                        <div class="event-content">
+                            <h3 class="event-title">{{ $event->title }}</h3>
+                            <p class="event-description">{{ $event->short_description }}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            @empty
-                <p>Нет данных о персонале.</p>
-            @endforelse
-        </div>
-    </section>
-
-    <!-- Отзывы -->
-    <section id="reviews">
-        <h2 class="section-title">Отзывы</h2>
-        <div class="reviews-grid">
-            @forelse($reviews as $review)
-            <div class="review-card">
-                <div class="review-author">{{ $review->author }}</div>
-                <div class="review-rating">
-                    @for($i=1; $i<=5; $i++)
-                        @if($i <= $review->rating) ★ @else ☆ @endif
-                    @endfor
-                </div>
-                <div class="review-text">«{{ $review->text }}»</div>
+        @else
+            <div class="empty-message">
+                <p>📸 Здесь будут фото и отчёты о прошедших событиях.</p>
             </div>
-            @empty
-                <p>Пока нет отзывов.</p>
-            @endforelse
-        </div>
+        @endif
     </section>
 </main>
 
@@ -732,8 +728,16 @@ body.dark-theme .theme-btn {
 
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Модальное окно для подробной информации -->
+<div id="eventModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: white; max-width: 500px; width: 90%; border-radius: 20px; padding: 2rem; position: relative; max-height: 80vh; overflow-y: auto;">
+        <button onclick="closeModal()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer;">&times;</button>
+        <div id="modalDate" style="background: #d4af37; display: inline-block; padding: 0.2rem 1rem; border-radius: 20px; margin-bottom: 1rem;"></div>
+        <h2 id="modalTitle" style="margin-bottom: 1rem;"></h2>
+        <p id="modalDescription" style="line-height: 1.6;"></p>
+    </div>
+</div>
+
 <script>
     let clickCount = 0;
     let timeoutId = null;
@@ -758,26 +762,16 @@ body.dark-theme .theme-btn {
         }
     });
 
-    // Инициализация слайдера Swiper с автопрокруткой
-    document.addEventListener('DOMContentLoaded', function() {
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            effect: 'slide',
-            speed: 800,
-        });
-    });
+    function showEventDetails(id, title, description, dateTime) {
+        document.getElementById('modalDate').innerHTML = dateTime;
+        document.getElementById('modalTitle').innerHTML = title;
+        document.getElementById('modalDescription').innerHTML = description;
+        document.getElementById('eventModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('eventModal').style.display = 'none';
+    }
 </script>
 <!-- Переключатель темы -->
 <div class="theme-switcher">

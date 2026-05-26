@@ -3,116 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ресторан Вкусно | Главная</title>
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Ресторан Вкусно | Заказ столика</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html {
-            scroll-behavior: smooth;
-        }
-
-        /* Отступ для всех якорных элементов (шапка не перекрывает) */
-        section, [id] {
-            scroll-margin-top: 170px;
+            scroll-padding-top: 100px; /* Отступ сверху для якорных ссылок (высота шапки + запас) */
+            scroll-behavior: smooth;   /* Плавная прокрутка */
         }
         body {
-            font-family: 'Cormorant Garamond', serif;
-            background-color: #fef9f0;
-            color: #2c2b28;
-            line-height: 1.5;
-        }
-        .header {
-            background-color: #1a1a1a;
-            padding: 0.8rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        .logo {
-            flex-shrink: 0;
-        }
-        .logo img {
-            max-height: 50px;
-            width: auto;
-            display: block;
-        }
-        .nav {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        .nav-list {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-item {
-            position: relative;
-        }
-        .nav-item > a {
-            color: #f5e7d9;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            display: inline-block;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-        .nav-item > a:hover, .nav-item > a.active {
-            color: #d4af37;
-        }
+        font-family: 'Cormorant Garamond', serif;
+        background-color: #fef9f0;
+        color: #2c2b28;
+        line-height: 1.5;
+    }
+    .header {
+        background-color: #1a1a1a;
+        padding: 0.8rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .logo {
+        flex-shrink: 0;
+    }
+    .logo img {
+        max-height: 50px;
+        width: auto;
+        display: block;
+    }
+    .nav {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .nav-list {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-item {
+        position: relative;
+    }
+    .nav-item > a {
+        color: #f5e7d9;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        display: inline-block;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+    }
+    .nav-item > a:hover, .nav-item > a.active {
+        color: #d4af37;
+    }
         .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #2a2a2a;
-            min-width: 180px;
-            border-radius: 8px;
-            list-style: none;
-            padding: 0.5rem 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .nav-item:hover .dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .dropdown li a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: #f5e7d9;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .dropdown li a:hover {
-            background-color: #d4af37;
-            color: #1a1a1a;
-        }
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #2a2a2a;
+        min-width: 180px;
+        border-radius: 8px;
+        list-style: none;
+        padding: 0.5rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .nav-item:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .dropdown li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #f5e7d9;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    .dropdown li a:hover {
+        background-color: #d4af37;
+        color: #1a1a1a;
+    }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            min-height: calc(100vh - 300px);
         }
-        section {
-            margin-bottom: 3rem;
-            scroll-margin-top: 100px;
+        .booking-section {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         .section-title {
             font-size: 2rem;
@@ -120,148 +119,106 @@
             padding-left: 1rem;
             margin-bottom: 1.5rem;
             color: #2c2b28;
-        }
-        .about-text {
-            font-size: 1.1rem;
-            background: #fff7ef;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        /* Галерея */
-        .gallery-section {
-            margin-bottom: 3rem;
-        }
-        .gallery-slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .swiper {
-            width: 100%;
-            height: 500px;
-        }
-        .swiper-slide {
-            position: relative;
-        }
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .slide-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 40px 20px 20px;
             text-align: center;
+            border-left: none;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 0.5rem;
         }
-        .slide-caption h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+        .form-group {
+            margin-bottom: 1.5rem;
         }
-        .slide-caption p {
-            font-size: 0.9rem;
-            opacity: 0.9;
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c2b28;
         }
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #d4af37;
+        .required {
+            color: #e74c3c;
         }
-        .swiper-pagination-bullet-active {
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .checkbox-group input {
+            width: auto;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
             background: #d4af37;
-        }
-        
-        .staff-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        .staff-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            width: 220px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-        .staff-card:hover { transform: translateY(-5px); }
-        .staff-photo {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background-color: #e2d5c0;
-        }
-        .staff-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0.8rem 0 0.2rem;
-        }
-        .staff-position {
-            color: #b8860b;
-            margin-bottom: 1rem;
-        }
-        .reviews-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-        .review-card {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            flex: 1 1 280px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border: 1px solid #f0e1d0;
-        }
-        .review-author {
-            font-weight: bold;
-            color: #b45f1b;
-        }
-        .review-rating {
-            color: #d4af37;
-            margin: 0.5rem 0;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
             font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
         }
-        .review-text {
-            font-style: italic;
-            color: #3e3a35;
+        .btn-submit:hover {
+            background: #ffd700;
+            transform: scale(1.02);
         }
-
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
         .social-links {
             display: flex;
             gap: 1rem;
-            flex-shrink: 0;
         }
         .social-link {
-            background-color: transparent;
-            color: #f5e7d9;
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        .social-link:hover {
-            color: #d4af37;
-        }
+        background-color: transparent;
+        color: #f5e7d9;
+        padding: 0.3rem 0.8rem;
+        border-radius: 40px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+    }
+    .social-link:hover {
+        color: #d4af37;
+    }
         .footer {
             background-color: #1a1a1a;
             color: #cbc3b5;
             padding: 2rem;
             text-align: center;
+            margin-top: 2rem;
         }
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            position: relative;
+            position: relative; /* ключевая штука */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -271,7 +228,7 @@
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
-            font-size: 0.9rem;
+            line-height: 1.6;
         }
         .footer-logo-click {
             cursor: pointer;
@@ -296,15 +253,10 @@
             pointer-events: none;
             z-index: 999;
         }
-        
-        /* Адаптив */
-        @media (max-width: 768px) {
-            .swiper { height: 300px; }
-            .slide-caption h3 { font-size: 1.2rem; }
-            .slide-caption p { font-size: 0.8rem; }
-            .nav { position: static; transform: none; white-space: normal; }
-            .nav-list { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-            .logo-area { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        .telephone{
+            display: flex;
+            gap: 1rem;
+            color: #f5e7d9;
         }
         /* ===== ТЁМНАЯ ТЕМА ===== */
 body.dark-theme {
@@ -469,6 +421,7 @@ body.dark-theme .theme-btn {
         font-size: 18px;
     }
 }
+body.dark-theme label { color: #c9a84c; }
 /* ===== АДАПТИВНАЯ ШАПКА ===== */
 
 /* Планшеты (до 992px) */
@@ -589,7 +542,6 @@ body.dark-theme .theme-btn {
     }
 }
 
-
     </style>
 </head>
 <body>
@@ -641,81 +593,81 @@ body.dark-theme .theme-btn {
 </header>
 
 <main class="container">
-    <!-- О нас -->
-    <section id="about">
-        <h2 class="section-title">О нас</h2>
-        <div class="about-text">
-            {{ $about->content ?? 'Информация о ресторане временно недоступна. Пожалуйста, зайдите позже.' }}
-        </div>
-    </section>
-
-    <!-- Фотогалерея -->
-    <section id="gallery" class="gallery-section">
-        <div class="gallery-slider">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    @forelse($gallery as $photo)
-                    <div class="swiper-slide">
-                        <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
-                        @if($photo->title || $photo->description)
-                        <div class="slide-caption">
-                            <h3>{{ $photo->title }}</h3>
-                            <p>{{ $photo->description }}</p>
-                        </div>
-                        @endif
-                    </div>
-                    @empty
-                    <div class="swiper-slide">
-                        <img src="https://placehold.co/1200x500?text=Добавьте+фото+в+галерею" alt="Нет фото">
-                        <div class="slide-caption">
-                            <h3>Загрузите фото в админ-панели</h3>
-                            <p>Раздел "Управление галереей"</p>
-                        </div>
-                    </div>
-                    @endforelse
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+    <div class="booking-section">
+        <h1 class="section-title">Забронировать столик</h1>
+        
+        @if(session('success'))
+            <div class="success-message">
+                {{ session('success') }}
             </div>
-        </div>
-    </section>
-
-    <!-- Персонал -->
-    <section id="staff">
-        <h2 class="section-title">Персонал</h2>
-        <div class="staff-grid">
-            @forelse($staff as $person)
-            <div class="staff-card">
-                <img src="{{ $person->photo_url ? asset($person->photo_url) : 'https://placehold.co/400x400?text='.urlencode($person->name) }}" alt="{{ $person->name }}" class="staff-photo">
-                <div class="staff-name">{{ $person->name }}</div>
-                <div class="staff-position">{{ $person->position }}</div>
+        @endif
+        
+        <form method="POST" action="{{ route('booking.store') }}">
+            @csrf
+            
+            <div class="form-group">
+                <label>Имя гостя <span class="required">*</span></label>
+                <input type="text" name="guest_name" value="{{ old('guest_name') }}" required>
+                @error('guest_name') <div class="error-message">{{ $message }}</div> @enderror
             </div>
-            @empty
-                <p>Нет данных о персонале.</p>
-            @endforelse
-        </div>
-    </section>
-
-    <!-- Отзывы -->
-    <section id="reviews">
-        <h2 class="section-title">Отзывы</h2>
-        <div class="reviews-grid">
-            @forelse($reviews as $review)
-            <div class="review-card">
-                <div class="review-author">{{ $review->author }}</div>
-                <div class="review-rating">
-                    @for($i=1; $i<=5; $i++)
-                        @if($i <= $review->rating) ★ @else ☆ @endif
+            
+            <div class="form-group">
+                <label>Контактный телефон <span class="required">*</span></label>
+                <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="+7 (___) ___-__-__" required>
+                @error('phone') <div class="error-message">{{ $message }}</div> @enderror
+            </div>
+            
+            <div class="form-group">
+                <label>E-mail адрес</label>
+                <input type="email" name="email" value="{{ old('email') }}" placeholder="example@mail.ru">
+                @error('email') <div class="error-message">{{ $message }}</div> @enderror
+            </div>
+            
+            <div class="form-group">
+                <label>Желаемая дата <span class="required">*</span></label>
+                <input type="date" name="date" value="{{ old('date') }}" min="{{ date('Y-m-d') }}" required>
+                @error('date') <div class="error-message">{{ $message }}</div> @enderror
+            </div>
+            
+            <div class="form-group">
+                <label>Желаемое время <span class="required">*</span></label>
+                <select name="time" required>
+                    <option value="">Выберите время</option>
+                    <option value="12:00" {{ old('time') == '12:00' ? 'selected' : '' }}>12:00</option>
+                    <option value="13:00" {{ old('time') == '13:00' ? 'selected' : '' }}>13:00</option>
+                    <option value="14:00" {{ old('time') == '14:00' ? 'selected' : '' }}>14:00</option>
+                    <option value="15:00" {{ old('time') == '15:00' ? 'selected' : '' }}>15:00</option>
+                    <option value="16:00" {{ old('time') == '16:00' ? 'selected' : '' }}>16:00</option>
+                    <option value="17:00" {{ old('time') == '17:00' ? 'selected' : '' }}>17:00</option>
+                    <option value="18:00" {{ old('time') == '18:00' ? 'selected' : '' }}>18:00</option>
+                    <option value="19:00" {{ old('time') == '19:00' ? 'selected' : '' }}>19:00</option>
+                    <option value="20:00" {{ old('time') == '20:00' ? 'selected' : '' }}>20:00</option>
+                    <option value="21:00" {{ old('time') == '21:00' ? 'selected' : '' }}>21:00</option>
+                    <option value="22:00" {{ old('time') == '22:00' ? 'selected' : '' }}>22:00</option>
+                </select>
+                @error('time') <div class="error-message">{{ $message }}</div> @enderror
+            </div>
+            
+            <div class="form-group">
+                <label>Количество гостей <span class="required">*</span></label>
+                <select name="guests_count" required>
+                    <option value="">Выберите количество</option>
+                    @for($i=1; $i<=20; $i++)
+                        <option value="{{ $i }}" {{ old('guests_count') == $i ? 'selected' : '' }}>{{ $i }} {{ $i % 10 == 1 && $i != 11 ? 'гость' : ($i % 10 >= 2 && $i % 10 <= 4 && ($i < 10 || $i > 20) ? 'гостя' : 'гостей') }}</option>
                     @endfor
-                </div>
-                <div class="review-text">«{{ $review->text }}»</div>
+                </select>
+                @error('guests_count') <div class="error-message">{{ $message }}</div> @enderror
             </div>
-            @empty
-                <p>Пока нет отзывов.</p>
-            @endforelse
-        </div>
-    </section>
+            
+            <div class="form-group checkbox-group">
+                <input type="checkbox" name="privacy_consent" id="privacy_consent" required>
+                <label for="privacy_consent">Я согласен на обработку персональных данных <span class="required">*</span></label>
+            </div>
+            @error('privacy_consent') <div class="error-message">{{ $message }}</div> @enderror
+            
+            <button type="submit" id="submitBtn" class="btn-submit">Забронировать</button>
+        </form>
+    </div>
 </main>
 
 <footer class="footer">
@@ -732,13 +684,14 @@ body.dark-theme .theme-btn {
 
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     let clickCount = 0;
     let timeoutId = null;
     const logoBtn = document.getElementById('adminSecretButton');
     const toast = document.getElementById('adminToast');
+    const submitBtn = document.getElementById('submitBtn');
+    const bookingForm = document.getElementById('bookingForm');
+    let isSubmitting = false;
 
     function showToastMessage(msg) {
         toast.textContent = msg || '🔐 Админ-панель';
@@ -746,6 +699,7 @@ body.dark-theme .theme-btn {
         setTimeout(() => { toast.style.opacity = '0'; }, 2000);
     }
 
+    // 5 кликов для входа в админку
     logoBtn.addEventListener('click', () => {
         clickCount++;
         clearTimeout(timeoutId);
@@ -758,26 +712,56 @@ body.dark-theme .theme-btn {
         }
     });
 
-    // Инициализация слайдера Swiper с автопрокруткой
-    document.addEventListener('DOMContentLoaded', function() {
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            effect: 'slide',
-            speed: 800,
+    // Защита от повторной отправки формы
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            // Если уже отправляем - блокируем повторную отправку
+            if (isSubmitting) {
+                e.preventDefault();
+                showToastMessage('⏳ Подождите, бронь уже отправляется...');
+                return false;
+            }
+            
+            // Проверка валидности формы (через HTML5 validation)
+            if (!bookingForm.checkValidity()) {
+                // Если форма не валидна, не блокируем кнопку, а показываем ошибки
+                return true;
+            }
+            
+            // Блокируем кнопку
+            isSubmitting = true;
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = '⏳ Отправка...';
+                submitBtn.style.opacity = '0.7';
+                submitBtn.style.cursor = 'not-allowed';
+            }
+            
+            // Разрешаем отправку формы
+            return true;
         });
-    });
+        
+        // Восстанавливаем кнопку, если форма не отправилась (например, ошибка валидации)
+        // Это сработает при ответе сервера с ошибкой
+        if (submitBtn) {
+            // Сохраняем оригинальный текст кнопки
+            const originalText = submitBtn.textContent;
+            
+            // Отслеживаем, когда форма получает ответ от сервера
+            const observer = new MutationObserver(function() {
+                // Если появились сообщения об ошибках, восстанавливаем кнопку
+                if (document.querySelector('.error-message')) {
+                    isSubmitting = false;
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.style.cursor = 'pointer';
+                }
+            });
+            
+            observer.observe(document.body, { childList: true, subtree: true });
+        }
+    }
 </script>
 <!-- Переключатель темы -->
 <div class="theme-switcher">

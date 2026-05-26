@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Staff extends Model
+class Event extends Model
 {
-    protected $fillable = ['name', 'position', 'photo_url', 'sort_order'];
+    protected $fillable = ['title', 'date', 'start_time', 'short_description', 'photo_url', 'type', 'full_description'];
     
-    // Аксессор для получения полного URL фото
     public function getPhotoUrlAttribute($value)
     {
         if (!$value) {
-            return asset('images/default-avatar.png');
+            return null;
         }
         
         if (filter_var($value, FILTER_VALIDATE_URL) && strpos($value, 'placehold') !== false) {
@@ -20,5 +19,10 @@ class Staff extends Model
         }
         
         return asset($value);
+    }
+    
+    public function getFormattedTimeAttribute()
+    {
+        return $this->start_time ? date('H:i', strtotime($this->start_time)) : null;
     }
 }

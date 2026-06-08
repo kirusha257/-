@@ -1,0 +1,63 @@
+.footer {
+    background-color: #1a1a1a;
+    color: #cbc3b5;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contacts-short {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-logo-click {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: #2a2a2a;
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    user-select: none;
+}
+
+.admin-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #222;
+    color: gold;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: 0.2s;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Темная тема */
+body.dark-theme .footer {
+    background-color: #0d0d0d;
+}
+
+body.dark-theme .footer-logo-click {
+    background: #2a2a2a;
+    color: #c9a84c;
+}
+
+body.dark-theme .contacts-short {
+    color: #a0a0a0;
+}

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ресторан Вкусно | Контакты</title>
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <title>{{ __('messages.vkucno_contacts') }}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,11 +17,11 @@
             scroll-margin-top: 170px;
         }
         body {
-        font-family: 'Cormorant Garamond', serif;
-        background-color: #fef9f0;
-        color: #2c2b28;
-        line-height: 1.5;
-    }
+    font-family: 'Cormorant Garamond', serif;
+    background-color: #fef9f0;
+    color: #2c2b28;
+    line-height: 1.5;
+}
     .header {
         background-color: #1a1a1a;
         padding: 0.8rem 2rem;
@@ -238,20 +239,7 @@
     .social-link:hover {
         color: #d4af37;
     }
-        .footer {
-            background-color: #1a1a1a;
-            color: #cbc3b5;
-            padding: 2rem;
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative; /* ключевая штука */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        
         .contacts-short {
             position: absolute;
             left: 50%;
@@ -259,15 +247,7 @@
             text-align: center;
             line-height: 1.6;
         }
-        .footer-logo-click {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: #2a2a2a;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            user-select: none;
-        }
+        
         .admin-toast {
             position: fixed;
             bottom: 20px;
@@ -339,14 +319,7 @@ body.dark-theme .review-text {
     color: #b0b0b0;
 }
 
-body.dark-theme .footer {
-    background-color: #0d0d0d;
-}
 
-body.dark-theme .footer-logo-click {
-    background: #2a2a2a;
-    color: #c9a84c;
-}
 
 body.dark-theme .contacts-short {
     color: #a0a0a0;
@@ -574,7 +547,53 @@ body.dark-theme .info-text strong { color: #d4af37; }
         padding: 0.15rem 0.4rem;
     }
 }
+.language-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
 
+.language-btn {
+    background: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.language-btn:hover {
+    transform: scale(1.1);
+}
+
+body.dark-theme .language-btn {
+    background: #c9a84c;
+}
+
+@media (max-width: 768px) {
+
+    .language-switcher {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .language-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
     </style>
 </head>
 <body>
@@ -587,33 +606,33 @@ body.dark-theme .info-text strong { color: #d4af37; }
         <div class="nav">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="{{ route('home') }}">Главная</a>
+                    <a href="{{ route('home') }}">{{ __('messages.home') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('home') }}#about">О нас</a></li>
-                        <li><a href="{{ route('home') }}#staff">Персонал</a></li>
-                        <li><a href="{{ route('home') }}#reviews">Отзывы</a></li>
+                        <li><a href="{{ route('home') }}#about">{{ __('messages.about') }}</a></li>
+                        <li><a href="{{ route('home') }}#staff">{{ __('messages.staff') }}</a></li>
+                        <li><a href="{{ route('home') }}#reviews">{{ __('messages.reviews') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('menu') }}">Меню</a>
+                    <a href="{{ route('menu') }}">{{ __('messages.menu') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('menu') }}#best-dishes">Лучшие блюда</a></li>
-                        <li><a href="{{ route('menu') }}#full-menu">Меню</a></li>
+                        <li><a href="{{ route('menu') }}#best-dishes">{{ __('messages.best_dishes') }}</a></li>
+                        <li><a href="{{ route('menu') }}#full-menu">{{ __('messages.menu') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('events') }}">Мероприятия</a>
+                    <a href="{{ route('events') }}">{{ __('messages.events') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('events') }}#upcoming">Предстоящие</a></li>
-                        <li><a href="{{ route('events') }}#past">Прошедшие</a></li>
+                        <li><a href="{{ route('events') }}#upcoming">{{ __('messages.upcoming_events') }}</a></li>
+                        <li><a href="{{ route('events') }}#past">{{ __('messages.past_events') }}</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="{{ route('booking') }}">Заказ столика</a></li>
+                <li class="nav-item"><a href="{{ route('booking') }}">{{ __('messages.booking') }}</a></li>
                 <li class="nav-item">
-                    <a href="{{ route('contacts') }}">Контакты</a>
+                    <a href="{{ route('contacts') }}">{{ __('messages.contacts') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('contacts') }}#map">Схема проезда</a></li>
-                        <li><a href="{{ route('contacts') }}#feedback">Обратная связь</a></li>
+                        <li><a href="{{ route('contacts') }}#map">{{ __('messages.route_map') }}</a></li>
+                        <li><a href="{{ route('contacts') }}#feedback">{{ __('messages.feedback') }}</a></li>
                     </ul>
                 </li>
             </ul>
@@ -631,18 +650,20 @@ body.dark-theme .info-text strong { color: #d4af37; }
     <div class="contacts-wrapper">
         <!-- Контактная информация -->
         <div class="info-card">
-            <h3>Свяжитесь с нами</h3>
+            <h3>{{ __('messages.Contact us') }}</h3>
             <div class="info-item">
                 <div class="info-icon">📍</div>
                 <div class="info-text">
-                    <strong>Адрес</strong>
-                    {{ $contacts->address ?? 'улица Володарского, 19, Севастополь' }}
+                    <strong>{{ __('messages.Address') }}</strong>
+                    {{ app()->getLocale() === 'en'
+                        ? ($contacts->address_en ?? $contacts->address)
+                        : $contacts->address ?? 'улица Володарского, 19, Севастополь' }}
                 </div>
             </div>
             <div class="info-item">
                 <div class="info-icon">📞</div>
                 <div class="info-text">
-                    <strong>Телефон</strong>
+                    <strong>{{ __('messages.Telephone') }}</strong>
                     {{ $contacts->phone ?? '+7 (495) 123-45-67' }}
                 </div>
             </div>
@@ -656,15 +677,17 @@ body.dark-theme .info-text strong { color: #d4af37; }
             <div class="info-item">
                 <div class="info-icon">🕑</div>
                 <div class="info-text">
-                    <strong>Режим работы</strong>
-                    {{ $contacts->work_hours ?? 'Пн–Вс: 12:00 – 00:00' }}
+                    <strong>{{ __('messages.Operating mode') }}</strong>
+                    {{ app()->getLocale() === 'en'
+                        ? ($contacts->work_hours_en ?? $contacts->work_hours)
+                        : $contacts->work_hours ?? 'Пн–Вс: 12:00 – 00:00' }}
                 </div>
             </div>
         </div>
         
         <!-- Карта -->
         <div class="map-container" id="map">
-            <h3 style="margin-bottom: 1rem; color: #d4af37;">Схема проезда</h3>
+            <h3 style="margin-bottom: 1rem; color: #d4af37;">{{ __('messages.route_map') }}</h3>
             <iframe 
                 src="https://yandex.ru/map-widget/v1/?ll=33.523159,44.606298&z=17&pt=33.523159,44.606298,pm2rdm"
                 allowfullscreen="true">
@@ -674,7 +697,7 @@ body.dark-theme .info-text strong { color: #d4af37; }
     
     <!-- Форма обратной связи -->
     <div class="feedback-form" id="feedback">
-        <h3 style="color: #d4af37; margin-bottom: 1rem;">Обратная связь</h3>
+        <h3 style="color: #d4af37; margin-bottom: 1rem;">{{ __('messages.feedback') }}</h3>
         
         @if(session('feedback_success'))
             <div class="success-message">
@@ -686,25 +709,29 @@ body.dark-theme .info-text strong { color: #d4af37; }
             @csrf
             
             <div class="form-group">
-                <label>Ваше имя <span class="required">*</span></label>
+                <label>{{ __('messages.Your name') }}<span class="required">*</span></label>
                 <input type="text" name="name" value="{{ old('name') }}" required>
-                @error('name') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
+                @error('name') 
+                    <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> 
+                @enderror
             </div>
             
             <div class="form-group">
-                <label>Email для ответа <span class="required">*</span></label>
+                <label>{{ __('messages.Email for the response') }}<span class="required">*</span></label>
                 <input type="email" name="email" value="{{ old('email') }}" required>
-                @error('email') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
+                @error('email') 
+                    <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> 
+                @enderror
             </div>
             
             <div class="form-group">
-                <label>Тема сообщения</label>
+                <label>{{ __('messages.Message subject') }}</label>
                 <input type="text" name="subject" value="{{ old('subject') }}">
                 @error('subject') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
             </div>
 
             <div class="form-group">
-                <label>Оценка</label>
+                <label>{{ __('messages.Evaluation') }}</label>
                 <select name="rating" style="width: auto;">
                     <option value="5">★★★★★ (5)</option>
                     <option value="4">★★★★☆ (4)</option>
@@ -715,7 +742,7 @@ body.dark-theme .info-text strong { color: #d4af37; }
             </div>
             
             <div class="form-group">
-                <label>Сообщение <span class="required">*</span></label>
+                <label>{{ __('messages.Message') }} <span class="required">*</span></label>
                 <textarea name="message" required>{{ old('message') }}</textarea>
                 @error('message') <div style="color: #e74c3c; font-size: 0.85rem;">{{ $message }}</div> @enderror
             </div>
@@ -725,17 +752,7 @@ body.dark-theme .info-text strong { color: #d4af37; }
     </div>
 </main>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo-click" id="adminSecretButton">Вкусно</div>
-        <div class="contacts-short">
-            улица Володарского, 19, Севастополь<br>
-            +7 (495) 123-45-67<br>
-            Пн–Вс: 12:00 – 00:00
-        </div>
-        
-    </div>
-</footer>
+@include('layouts.footer')
 
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
 
@@ -768,6 +785,13 @@ body.dark-theme .info-text strong { color: #d4af37; }
     <button id="themeToggle" class="theme-btn" aria-label="Переключить тему">
         <span class="theme-icon-light">☀️</span>
         <span class="theme-icon-dark">🌙</span>
+    </button>
+</div>
+
+<!-- Переключатель языка -->
+<div class="language-switcher">
+    <button id="languageToggle" class="language-btn">
+        {{ app()->getLocale() === 'ru' ? 'RU' : 'EN' }}
     </button>
 </div>
 
@@ -830,6 +854,17 @@ window.addEventListener('resize', function() {
             item.classList.remove('active');
         });
     }
+});
+
+document.getElementById('languageToggle')?.addEventListener('click', function () {
+
+    const currentLocale = "{{ app()->getLocale() }}";
+
+    const newLocale = currentLocale === 'ru'
+        ? 'en'
+        : 'ru';
+
+    window.location.href = `/lang/${newLocale}`;
 });
 </script>
 </body>

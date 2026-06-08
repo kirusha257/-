@@ -97,26 +97,31 @@
                         <th>Действия</th>
                     </tr>
                 </thead>
+                {{-- staff.blade.php - исправляем форму редактирования --}}
                 <tbody>
                     @foreach($staff as $person)
                     <tr>
                         <td>
                             @if($person->photo_url)
-                                <img src="{{ $person->photo_url }}" alt="{{ $person->name }}" class="thumb">
+                                <img src="{{ $person->photo_url }}" alt="{{ $person->localizedName }}" class="thumb">
                             @else
                                 <div class="no-photo">👤</div>
                             @endif
                         </td>
-                        <td>{{ $person->name }}</td>
-                        <td>{{ $person->position }}</td>
+                        <td>
+                            <input type="text" name="name" value="{{ $person->name }}" size="12" form="edit-form-{{ $person->id }}">
+                            <small style="display:block; color:#7a7670;">EN: {{ $person->name_en ?? '—' }}</small>
+                        </td>
+                        <td>
+                            <input type="text" name="position" value="{{ $person->position }}" size="12" form="edit-form-{{ $person->id }}">
+                            <small style="display:block; color:#7a7670;">EN: {{ $person->position_en ?? '—' }}</small>
+                        </td>
                         <td>{{ $person->sort_order }}</td>
                         <td>
                             <div class="actions">
-                                <form method="POST" action="{{ route('admin.staff.update', $person->id) }}" enctype="multipart/form-data" style="display:contents;">
+                                <form id="edit-form-{{ $person->id }}" method="POST" action="{{ route('admin.staff.update', $person->id) }}" enctype="multipart/form-data" style="display:contents;">
                                     @csrf
                                     @method('PUT')
-                                    <input type="text" name="name" value="{{ $person->name }}" size="12">
-                                    <input type="text" name="position" value="{{ $person->position }}" size="12">
                                     <input type="file" name="photo" accept="image/*">
                                     <button type="submit" class="btn btn--gold btn--sm">Обновить</button>
                                 </form>

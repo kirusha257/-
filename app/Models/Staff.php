@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
-    protected $fillable = ['name', 'position', 'photo_url', 'sort_order'];
+    protected $fillable = [
+        'name', 'position', 'name_en', 'position_en',
+        'photo_url', 'sort_order'
+    ];
     
     // Аксессор для получения полного URL фото
     public function getPhotoUrlAttribute($value)
@@ -20,5 +23,24 @@ class Staff extends Model
         }
         
         return asset($value);
+    }
+
+    // Аксессоры для локализации
+    public function getLocalizedNameAttribute()
+    {
+        $locale = app()->getLocale();
+        if ($locale === 'en' && $this->name_en) {
+            return $this->name_en;
+        }
+        return $this->name;
+    }
+    
+    public function getLocalizedPositionAttribute()
+    {
+        $locale = app()->getLocale();
+        if ($locale === 'en' && $this->position_en) {
+            return $this->position_en;
+        }
+        return $this->position;
     }
 }

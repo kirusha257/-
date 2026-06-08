@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ресторан Вкусно | Заказ столика</title>
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <title>{{ __('messages.vkucno_booking') }}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -208,21 +209,7 @@
     .social-link:hover {
         color: #d4af37;
     }
-        .footer {
-            background-color: #1a1a1a;
-            color: #cbc3b5;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative; /* ключевая штука */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        
         .contacts-short {
             position: absolute;
             left: 50%;
@@ -230,15 +217,7 @@
             text-align: center;
             line-height: 1.6;
         }
-        .footer-logo-click {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: #2a2a2a;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            user-select: none;
-        }
+        
         .admin-toast {
             position: fixed;
             bottom: 20px;
@@ -310,14 +289,6 @@ body.dark-theme .review-text {
     color: #b0b0b0;
 }
 
-body.dark-theme .footer {
-    background-color: #0d0d0d;
-}
-
-body.dark-theme .footer-logo-click {
-    background: #2a2a2a;
-    color: #c9a84c;
-}
 
 body.dark-theme .contacts-short {
     color: #a0a0a0;
@@ -541,7 +512,53 @@ body.dark-theme label { color: #c9a84c; }
         padding: 0.15rem 0.4rem;
     }
 }
+.language-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
 
+.language-btn {
+    background: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.language-btn:hover {
+    transform: scale(1.1);
+}
+
+body.dark-theme .language-btn {
+    background: #c9a84c;
+}
+
+@media (max-width: 768px) {
+
+    .language-switcher {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .language-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
     </style>
 </head>
 <body>
@@ -554,33 +571,33 @@ body.dark-theme label { color: #c9a84c; }
         <div class="nav">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="{{ route('home') }}">Главная</a>
+                    <a href="{{ route('home') }}">{{ __('messages.home') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('home') }}#about">О нас</a></li>
-                        <li><a href="{{ route('home') }}#staff">Персонал</a></li>
-                        <li><a href="{{ route('home') }}#reviews">Отзывы</a></li>
+                        <li><a href="{{ route('home') }}#about">{{ __('messages.about') }}</a></li>
+                        <li><a href="{{ route('home') }}#staff">{{ __('messages.staff') }}</a></li>
+                        <li><a href="{{ route('home') }}#reviews">{{ __('messages.reviews') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('menu') }}">Меню</a>
+                    <a href="{{ route('menu') }}">{{ __('messages.menu') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('menu') }}#best-dishes">Лучшие блюда</a></li>
-                        <li><a href="{{ route('menu') }}#full-menu">Меню</a></li>
+                        <li><a href="{{ route('menu') }}#best-dishes">{{ __('messages.best_dishes') }}</a></li>
+                        <li><a href="{{ route('menu') }}#full-menu">{{ __('messages.menu') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('events') }}">Мероприятия</a>
+                    <a href="{{ route('events') }}">{{ __('messages.events') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('events') }}#upcoming">Предстоящие</a></li>
-                        <li><a href="{{ route('events') }}#past">Прошедшие</a></li>
+                        <li><a href="{{ route('events') }}#upcoming">{{ __('messages.upcoming_events') }}</a></li>
+                        <li><a href="{{ route('events') }}#past">{{ __('messages.past_events') }}</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="{{ route('booking') }}">Заказ столика</a></li>
+                <li class="nav-item"><a href="{{ route('booking') }}">{{ __('messages.booking') }}</a></li>
                 <li class="nav-item">
-                    <a href="{{ route('contacts') }}">Контакты</a>
+                    <a href="{{ route('contacts') }}">{{ __('messages.contacts') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('contacts') }}#map">Схема проезда</a></li>
-                        <li><a href="{{ route('contacts') }}#feedback">Обратная связь</a></li>
+                        <li><a href="{{ route('contacts') }}#map">{{ __('messages.route_map') }}</a></li>
+                        <li><a href="{{ route('contacts') }}#feedback">{{ __('messages.feedback') }}</a></li>
                     </ul>
                 </li>
             </ul>
@@ -594,7 +611,7 @@ body.dark-theme label { color: #c9a84c; }
 
 <main class="container">
     <div class="booking-section">
-        <h1 class="section-title">Забронировать столик</h1>
+        <h1 class="section-title">{{ __('messages.booking') }}</h1>
         
         @if(session('success'))
             <div class="success-message">
@@ -606,31 +623,31 @@ body.dark-theme label { color: #c9a84c; }
             @csrf
             
             <div class="form-group">
-                <label>Имя гостя <span class="required">*</span></label>
+                <label>{{ __('messages.Guests_name') }} <span class="required">*</span></label>
                 <input type="text" name="guest_name" value="{{ old('guest_name') }}" required>
                 @error('guest_name') <div class="error-message">{{ $message }}</div> @enderror
             </div>
             
             <div class="form-group">
-                <label>Контактный телефон <span class="required">*</span></label>
+                <label>{{ __('messages.Contact phone number') }}<span class="required">*</span></label>
                 <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="+7 (___) ___-__-__" required>
                 @error('phone') <div class="error-message">{{ $message }}</div> @enderror
             </div>
             
             <div class="form-group">
-                <label>E-mail адрес</label>
+                <label>{{ __('messages.E-mail address') }}</label>
                 <input type="email" name="email" value="{{ old('email') }}" placeholder="example@mail.ru">
                 @error('email') <div class="error-message">{{ $message }}</div> @enderror
             </div>
             
             <div class="form-group">
-                <label>Желаемая дата <span class="required">*</span></label>
+                <label>{{ __('messages.Desired date') }}<span class="required">*</span></label>
                 <input type="date" name="date" value="{{ old('date') }}" min="{{ date('Y-m-d') }}" required>
                 @error('date') <div class="error-message">{{ $message }}</div> @enderror
             </div>
             
             <div class="form-group">
-                <label>Желаемое время <span class="required">*</span></label>
+                <label>{{ __('messages.Desired time') }}<span class="required">*</span></label>
                 <select name="time" required>
                     <option value="">Выберите время</option>
                     <option value="12:00" {{ old('time') == '12:00' ? 'selected' : '' }}>12:00</option>
@@ -649,11 +666,13 @@ body.dark-theme label { color: #c9a84c; }
             </div>
             
             <div class="form-group">
-                <label>Количество гостей <span class="required">*</span></label>
+                <label>{{ __('messages.Number of guests') }}<span class="required">*</span></label>
                 <select name="guests_count" required>
-                    <option value="">Выберите количество</option>
-                    @for($i=1; $i<=20; $i++)
-                        <option value="{{ $i }}" {{ old('guests_count') == $i ? 'selected' : '' }}>{{ $i }} {{ $i % 10 == 1 && $i != 11 ? 'гость' : ($i % 10 >= 2 && $i % 10 <= 4 && ($i < 10 || $i > 20) ? 'гостя' : 'гостей') }}</option>
+                    <option value="">{{ __('messages.Select the quantity') }}</option>
+                    @for($i = 1; $i <= 10; $i++)
+                        <option value="{{ $i }}" {{ old('guests_count') == $i ? 'selected' : '' }}>
+                            {{ $i }}
+                        </option>
                     @endfor
                 </select>
                 @error('guests_count') <div class="error-message">{{ $message }}</div> @enderror
@@ -661,26 +680,16 @@ body.dark-theme label { color: #c9a84c; }
             
             <div class="form-group checkbox-group">
                 <input type="checkbox" name="privacy_consent" id="privacy_consent" required>
-                <label for="privacy_consent">Я согласен на обработку персональных данных <span class="required">*</span></label>
+                <label for="privacy_consent">{{ __('messages.personal data') }}<span class="required">*</span></label>
             </div>
             @error('privacy_consent') <div class="error-message">{{ $message }}</div> @enderror
             
-            <button type="submit" id="submitBtn" class="btn-submit">Забронировать</button>
+            <button type="submit" id="submitBtn" class="btn-submit">{{ __('messages.to_book') }}</button>
         </form>
     </div>
 </main>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo-click" id="adminSecretButton">Вкусно</div>
-        <div class="contacts-short">
-            улица Володарского, 19, Севастополь<br>
-            +7 (495) 123-45-67<br>
-            Пн–Вс: 12:00 – 00:00
-        </div>
-        
-    </div>
-</footer>
+@include('layouts.footer')
 
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
 
@@ -771,6 +780,13 @@ body.dark-theme label { color: #c9a84c; }
     </button>
 </div>
 
+<!-- Переключатель языка -->
+<div class="language-switcher">
+    <button id="languageToggle" class="language-btn">
+        {{ app()->getLocale() === 'ru' ? 'RU' : 'EN' }}
+    </button>
+</div>
+
 <script>
     function setTheme(theme) {
         if (theme === 'dark') {
@@ -831,6 +847,18 @@ window.addEventListener('resize', function() {
         });
     }
 });
+
+document.getElementById('languageToggle')?.addEventListener('click', function () {
+
+    const currentLocale = "{{ app()->getLocale() }}";
+
+    const newLocale = currentLocale === 'ru'
+        ? 'en'
+        : 'ru';
+
+    window.location.href = `/lang/${newLocale}`;
+});
+
 </script>
 </body>
 </html>

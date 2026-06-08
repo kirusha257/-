@@ -1,9 +1,11 @@
 <?php
+// bootstrap/app.php
 
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\AdminAuth; // ← ЭТУ СТРОКУ ДОБАВЛЯЕМ ВВЕРХУ
+use App\Http\Middleware\AdminAuth;
+use App\Http\Middleware\AdminRoleMiddleware; // ДОБАВИТЬ ЭТУ СТРОКУ
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -12,10 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // Сюда добавляем алиас для middleware
         $middleware->alias([
             'admin.auth' => AdminAuth::class,
+            'admin.role' => AdminRoleMiddleware::class, // ДОБАВИТЬ ЭТУ СТРОКУ
         ]);
+        $middleware->appendToGroup('web', \App\Http\Middleware\SetLocale::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

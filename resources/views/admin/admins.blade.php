@@ -40,9 +40,18 @@
         .inline-form { display: inline; }
         .return { margin: -50px 0px 20px 0px; }
         
+        .action-cell {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        
         @media (max-width: 768px) {
             .form-grid { grid-template-columns: 1fr; }
             .admins-table { font-size: 0.8rem; }
+            .action-cell { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
 </head>
@@ -84,6 +93,13 @@
                         <label class="field__label">🔒 Пароль</label>
                         <input type="password" name="password" placeholder="минимум 6 символов" required>
                     </div>
+                    <div class="field">
+                        <label class="field__label">👑 Роль</label>
+                        <select name="role" required>
+                            <option value="admin">Администратор</option>
+                            <option value="super_admin">Главный администратор</option>
+                        </select>
+                    </div>
                 </div>
                 <button type="submit" class="btn">➕ Добавить</button>
             </form>
@@ -97,13 +113,14 @@
                     <th>Имя</th>
                     <th>Фамилия</th>
                     <th>Логин</th>
+                    <th>Роль</th>
                     <th>Действия</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($admins as $admin)
                 <tr>
-                    <form method="POST" action="{{ route('admin.admins.update', $admin->id) }}" class="inline-form">
+                    <form method="POST" action="{{ route('admin.admins.update', $admin->id) }}" id="edit-form-{{ $admin->id }}">
                         @csrf
                         @method('PUT')
                         <td>{{ $admin->id }}</td>
@@ -111,15 +128,23 @@
                         <td><input type="text" name="last_name" value="{{ $admin->last_name }}" style="width: 120px;" required></td>
                         <td><input type="text" name="login" value="{{ $admin->login }}" style="width: 120px;" required></td>
                         <td>
-                            <input type="password" name="password" placeholder="Новый пароль" style="width: 130px;">
-                            <button type="submit" class="btn btn-sm">💾 Обновить</button>
+                            <select name="role" style="width: 130px;">
+                                <option value="admin" {{ $admin->role == 'admin' ? 'selected' : '' }}>Администратор</option>
+                                <option value="super_admin" {{ $admin->role == 'super_admin' ? 'selected' : '' }}>Главный админ</option>
+                            </select>
+                        </td>
+                        <td>
+                            <div class="action-cell">
+                                <input type="password" name="password" placeholder="Новый пароль" style="width: 130px;">
+                                <button type="submit" class="btn btn-sm">Обновить</button>
+                            </div>
                         </td>
                     </form>
-                    <td style="white-space: nowrap;">
+                    <td>
                         <form method="POST" action="{{ route('admin.admins.destroy', $admin->id) }}" class="inline-form" onsubmit="return confirm('Удалить администратора {{ $admin->first_name }} {{ $admin->last_name }}?')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn-danger btn-sm">🗑️ Удалить</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
                         </form>
                     </td>
                 </tr>

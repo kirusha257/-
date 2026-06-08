@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ресторан Вкусно | Меню</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
  
@@ -241,33 +242,7 @@
             font-size: 0.9rem;
         }
  
-        /* FOOTER */
-        .footer {
-            background-color: #1a1a1a;
-            color: #cbc3b5;
-            padding: 1rem;
-            text-align: center;
-        }
         
-        .footer-center { text-align: center; font-size: 0.82rem; line-height: 1.9; color: rgba(255,255,255,0.4); }
-        .footer-logo-click {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: #2a2a2a;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            user-select: none;
-        }
-        .footer-logo-click:hover { opacity: 1; }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
  
         .admin-toast {
             position: fixed; bottom: 24px; right: 24px;
@@ -365,14 +340,6 @@ body.dark-theme .review-text {
     color: #b0b0b0;
 }
 
-body.dark-theme .footer {
-    background-color: #0d0d0d;
-}
-
-body.dark-theme .footer-logo-click {
-    background: #2a2a2a;
-    color: #c9a84c;
-}
 
 body.dark-theme .contacts-short {
     color: #a0a0a0;
@@ -595,39 +562,6 @@ body.dark-theme .theme-btn {
         padding: 0.15rem 0.4rem;
     }
 }
-/* ===== ПОДВАЛ ===== */
-.footer {
-    background-color: #1a1a1a;
-    color: #cbc3b5;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.footer-logo-click {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.1rem;
-    background: #2a2a2a;
-    padding: 0.3rem 1rem;
-    border-radius: 30px;
-    user-select: none;
-    transition: opacity 0.3s;
-}
-
-.footer-logo-click:hover {
-    opacity: 0.8;
-}
 
 .contacts-short {
     text-align: center;
@@ -636,86 +570,63 @@ body.dark-theme .theme-btn {
     flex: 1;
 }
 
-/* Адаптивный подвал */
-@media (max-width: 768px) {
-    .footer {
-        padding: 1.2rem 1rem;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 0.8rem;
-        justify-content: center;
-    }
-    
-    .contacts-short {
-        font-size: 0.75rem;
-    }
+
+.language-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
-@media (max-width: 480px) {
-    .footer {
-        padding: 1rem 0.8rem;
-    }
-    
-    .contacts-short {
-        font-size: 0.7rem;
-    }
-    
-    .footer-logo-click {
-        font-size: 0.9rem;
-        padding: 0.2rem 0.8rem;
-    }
-}
-.footer {
-    background-color: #1a1a1a;
-    color: #cbc3b5;
-    padding: 2rem;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
+.language-btn {
+    background: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
-.contacts-short {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 0.9rem;
+.language-btn:hover {
+    transform: scale(1.1);
 }
 
-.footer-logo-click {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.2rem;
-    background: #2a2a2a;
-    padding: 0.2rem 1rem;
-    border-radius: 30px;
-    user-select: none;
+body.dark-theme .language-btn {
+    background: #c9a84c;
 }
 
-/* Адаптивный подвал */
 @media (max-width: 768px) {
-    .footer {
-        padding: 1.5rem 1rem;
+
+    .language-switcher {
+        bottom: 15px;
+        right: 15px;
     }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 1rem;
+
+    .language-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
     }
-    
-    .contacts-short {
-        position: static;
-        transform: none;
-    }
+}
+
+.dishes-carousel-wrap {
+    position: relative;
+}
+
+.dishes-pagination {
+    position: static !important;
+    margin-top: 16px;
+    text-align: center;
 }
     </style>
 </head>
@@ -729,33 +640,33 @@ body.dark-theme .theme-btn {
         <div class="nav">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="{{ route('home') }}">Главная</a>
+                    <a href="{{ route('home') }}">{{ __('messages.home') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('home') }}#about">О нас</a></li>
-                        <li><a href="{{ route('home') }}#staff">Персонал</a></li>
-                        <li><a href="{{ route('home') }}#reviews">Отзывы</a></li>
+                        <li><a href="{{ route('home') }}#about">{{ __('messages.about') }}</a></li>
+                        <li><a href="{{ route('home') }}#staff">{{ __('messages.staff') }}</a></li>
+                        <li><a href="{{ route('home') }}#reviews">{{ __('messages.reviews') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('menu') }}">Меню</a>
+                    <a href="{{ route('menu') }}">{{ __('messages.menu') }}</a>
                     <ul class="dropdown">
-                        <li><a href="#best-dishes">Лучшие блюда</a></li>
-                        <li><a href="#full-menu">Меню</a></li>
+                        <li><a href="{{ route('menu') }}#best-dishes">{{ __('messages.best_dishes') }}</a></li>
+                        <li><a href="{{ route('menu') }}#full-menu">{{ __('messages.menu') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('events') }}">Мероприятия</a>
+                    <a href="{{ route('events') }}">{{ __('messages.events') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('events') }}#upcoming">Предстоящие</a></li>
-                        <li><a href="{{ route('events') }}#past">Прошедшие</a></li>
+                        <li><a href="{{ route('events') }}#upcoming">{{ __('messages.upcoming_events') }}</a></li>
+                        <li><a href="{{ route('events') }}#past">{{ __('messages.past_events') }}</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="{{ route('booking') }}">Заказ столика</a></li>
+                <li class="nav-item"><a href="{{ route('booking') }}">{{ __('messages.booking') }}</a></li>
                 <li class="nav-item">
-                    <a href="{{ route('contacts') }}">Контакты</a>
+                    <a href="{{ route('contacts') }}">{{ __('messages.contacts') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('contacts') }}#map">Схема проезда</a></li>
-                        <li><a href="{{ route('contacts') }}#feedback">Обратная связь</a></li>
+                        <li><a href="{{ route('contacts') }}#map">{{ __('messages.route_map') }}</a></li>
+                        <li><a href="{{ route('contacts') }}#feedback">{{ __('messages.feedback') }}</a></li>
                     </ul>
                 </li>
             </ul>
@@ -771,7 +682,7 @@ body.dark-theme .theme-btn {
  
     <!-- ЛУЧШИЕ БЛЮДА -->
     <section id="best-dishes">
-        <h2 class="section-title">Наши лучшие блюда</h2>
+        <h2 class="section-title">{{ __('messages.best_dishes') }}</h2>
  
         @if($bestDishes->count() > 0)
         <div class="dishes-carousel-wrap">
@@ -784,9 +695,13 @@ body.dark-theme .theme-btn {
                                 <img src="{{ $dish->image_url }}" alt="{{ $dish->title }}">
                                 <div class="dish-overlay"></div>
                                 <div class="dish-info">
-                                    <div class="dish-name">{{ $dish->title }}</div>
+                                    <div class="dish-name">{{ app()->getLocale() === 'en'
+                                        ? ($dish->title_en ?? $dish->title)
+                                        : $dish->title }} </div>
                                     @if($dish->description)
-                                        <div class="dish-desc">{{ $dish->description }}</div>
+                                        <div class="dish-desc">{{ app()->getLocale() === 'en'
+                                            ? ($dish->description_en ?? $dish->description)
+                                            : $dish->description }}</div>
                                     @endif
                                     @if($dish->price)
                                         <span class="dish-price">{{ $dish->price }}</span>
@@ -809,7 +724,7 @@ body.dark-theme .theme-btn {
  
     <!-- ПОЛНОЕ МЕНЮ -->
     <section id="full-menu">
-        <h2 class="section-title">Полное меню</h2>
+        <h2 class="section-title">{{ __('messages.menu') }}</h2>
  
         @if($menuImages->count() > 0)
         <div class="menu-slider-wrap">
@@ -833,16 +748,7 @@ body.dark-theme .theme-btn {
  
 </main>
  
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo-click" id="adminSecretButton">Вкусно</div>
-        <div class="contacts-short">
-            улица Володарского, 19, Севастополь<br>
-            +7 (495) 123-45-67<br>
-            Пн–Вс: 12:00 – 00:00
-        </div>
-    </div>
-</footer>
+@include('layouts.footer')
  
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
  
@@ -899,31 +805,20 @@ body.dark-theme .theme-btn {
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
  
-    /* Секрет-кнопка */
-    let clickCount = 0, timeoutId = null;
-    const logoBtn = document.getElementById('adminSecretButton');
-    const toast = document.getElementById('adminToast');
-    function showToastMessage(msg) {
-        toast.textContent = msg || '🔐 Админ-панель';
-        toast.style.opacity = '1';
-        setTimeout(() => { toast.style.opacity = '0'; }, 2000);
-    }
-    logoBtn.addEventListener('click', () => {
-        clickCount++;
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => { clickCount = 0; }, 1000);
-        if (clickCount === 5) {
-            showToastMessage('✅ Перенаправление на страницу входа...');
-            window.location.href = "{{ route('admin.login') }}";
-            clickCount = 0;
-        }
-    });
+    
 </script>
 <!-- Переключатель темы -->
 <div class="theme-switcher">
     <button id="themeToggle" class="theme-btn" aria-label="Переключить тему">
         <span class="theme-icon-light">☀️</span>
         <span class="theme-icon-dark">🌙</span>
+    </button>
+</div>
+
+<!-- Переключатель языка -->
+<div class="language-switcher">
+    <button id="languageToggle" class="language-btn">
+        {{ app()->getLocale() === 'ru' ? 'RU' : 'EN' }}
     </button>
 </div>
 
@@ -986,6 +881,17 @@ window.addEventListener('resize', function() {
             item.classList.remove('active');
         });
     }
+});
+
+document.getElementById('languageToggle')?.addEventListener('click', function () {
+
+    const currentLocale = "{{ app()->getLocale() }}";
+
+    const newLocale = currentLocale === 'ru'
+        ? 'en'
+        : 'ru';
+
+    window.location.href = `/lang/${newLocale}`;
 });
 </script>
 </body>

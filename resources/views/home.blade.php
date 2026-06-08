@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ресторан Вкусно | Главная</title>
+    <title>{{ __('messages.vkucno_glavn') }}</title>
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -252,20 +253,7 @@
         .social-link:hover {
             color: #d4af37;
         }
-        .footer {
-            background-color: #1a1a1a;
-            color: #cbc3b5;
-            padding: 2rem;
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        
         .contacts-short {
             position: absolute;
             left: 50%;
@@ -273,15 +261,7 @@
             text-align: center;
             font-size: 0.9rem;
         }
-        .footer-logo-click {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: #2a2a2a;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            user-select: none;
-        }
+        
         .admin-toast {
             position: fixed;
             bottom: 20px;
@@ -358,14 +338,7 @@ body.dark-theme .review-text {
     color: #b0b0b0;
 }
 
-body.dark-theme .footer {
-    background-color: #0d0d0d;
-}
 
-body.dark-theme .footer-logo-click {
-    background: #2a2a2a;
-    color: #c9a84c;
-}
 
 body.dark-theme .contacts-short {
     color: #a0a0a0;
@@ -588,8 +561,120 @@ body.dark-theme .theme-btn {
         padding: 0.15rem 0.4rem;
     }
 }
+/* Стили для форматированного текста в секции "О нас" */
+.about-text {
+    font-size: 1.1rem;
+    background: #fff7ef;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    line-height: 1.6;
+}
 
+/* Стили для HTML-элементов внутри about-text */
+.about-text h1,
+.about-text h2,
+.about-text h3 {
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+}
 
+.about-text h1 { font-size: 2rem; }
+.about-text h2 { font-size: 1.75rem; }
+.about-text h3 { font-size: 1.5rem; }
+
+.about-text p {
+    margin-bottom: 1em;
+    line-height: 1.7;
+}
+
+.about-text ul,
+.about-text ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+.about-text li {
+    margin-bottom: 0.5em;
+}
+
+.about-text strong {
+    font-weight: 600;
+    color: #b45f1b;
+}
+
+.about-text em {
+    font-style: italic;
+}
+
+.about-text a {
+    color: #d4af37;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.about-text a:hover {
+    border-bottom-color: #d4af37;
+}
+
+/* Для темной темы */
+body.dark-theme .about-text {
+    background: #1e1e1e;
+}
+
+body.dark-theme .about-text strong {
+    color: #c9a84c;
+}
+.language-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.language-btn {
+    background: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.language-btn:hover {
+    transform: scale(1.1);
+}
+
+body.dark-theme .language-btn {
+    background: #c9a84c;
+}
+
+@media (max-width: 768px) {
+
+    .language-switcher {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .language-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
     </style>
 </head>
 <body>
@@ -602,33 +687,33 @@ body.dark-theme .theme-btn {
         <div class="nav">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="{{ route('home') }}">Главная</a>
+                    <a href="{{ route('home') }}">{{ __('messages.home') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('home') }}#about">О нас</a></li>
-                        <li><a href="{{ route('home') }}#staff">Персонал</a></li>
-                        <li><a href="{{ route('home') }}#reviews">Отзывы</a></li>
+                        <li><a href="{{ route('home') }}#about">{{ __('messages.about') }}</a></li>
+                        <li><a href="{{ route('home') }}#staff">{{ __('messages.staff') }}</a></li>
+                        <li><a href="{{ route('home') }}#reviews">{{ __('messages.reviews') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('menu') }}">Меню</a>
+                    <a href="{{ route('menu') }}">{{ __('messages.menu') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('menu') }}#best-dishes">Лучшие блюда</a></li>
-                        <li><a href="{{ route('menu') }}#full-menu">Меню</a></li>
+                        <li><a href="{{ route('menu') }}#best-dishes">{{ __('messages.best_dishes') }}</a></li>
+                        <li><a href="{{ route('menu') }}#full-menu">{{ __('messages.menu') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('events') }}">Мероприятия</a>
+                    <a href="{{ route('events') }}">{{ __('messages.events') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('events') }}#upcoming">Предстоящие</a></li>
-                        <li><a href="{{ route('events') }}#past">Прошедшие</a></li>
+                        <li><a href="{{ route('events') }}#upcoming">{{ __('messages.upcoming_events') }}</a></li>
+                        <li><a href="{{ route('events') }}#past">{{ __('messages.past_events') }}</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="{{ route('booking') }}">Заказ столика</a></li>
+                <li class="nav-item"><a href="{{ route('booking') }}">{{ __('messages.booking') }}</a></li>
                 <li class="nav-item">
-                    <a href="{{ route('contacts') }}">Контакты</a>
+                    <a href="{{ route('contacts') }}">{{ __('messages.contacts') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('contacts') }}#map">Схема проезда</a></li>
-                        <li><a href="{{ route('contacts') }}#feedback">Обратная связь</a></li>
+                        <li><a href="{{ route('contacts') }}#map">{{ __('messages.route_map') }}</a></li>
+                        <li><a href="{{ route('contacts') }}#feedback">{{ __('messages.feedback') }}</a></li>
                     </ul>
                 </li>
             </ul>
@@ -643,9 +728,11 @@ body.dark-theme .theme-btn {
 <main class="container">
     <!-- О нас -->
     <section id="about">
-        <h2 class="section-title">О нас</h2>
+        <h2 class="section-title">{{ __('messages.about') }}</h2>
         <div class="about-text">
-            {{ $about->content ?? 'Информация о ресторане временно недоступна. Пожалуйста, зайдите позже.' }}
+            {!! app()->getLocale() === 'en'
+        ? ($about->content_en ?? $about->content)
+        : $about->content ?? 'Информация о ресторане временно недоступна. Пожалуйста, зайдите позже.' !!}
         </div>
     </section>
 
@@ -659,8 +746,12 @@ body.dark-theme .theme-btn {
                         <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
                         @if($photo->title || $photo->description)
                         <div class="slide-caption">
-                            <h3>{{ $photo->title }}</h3>
-                            <p>{{ $photo->description }}</p>
+                            <h3>{{ app()->getLocale() === 'en'
+                                ? ($photo->title_en ?? $photo->title)
+                                : $photo->title }}</h3>
+                            <p>{{ app()->getLocale() === 'en'
+                                ? ($photo->description_en ?? $photo->description)
+                                : $photo->description }}</p>
                         </div>
                         @endif
                     </div>
@@ -683,13 +774,17 @@ body.dark-theme .theme-btn {
 
     <!-- Персонал -->
     <section id="staff">
-        <h2 class="section-title">Персонал</h2>
+        <h2 class="section-title">{{ __('messages.staff') }}</h2>
         <div class="staff-grid">
             @forelse($staff as $person)
             <div class="staff-card">
                 <img src="{{ $person->photo_url ? asset($person->photo_url) : 'https://placehold.co/400x400?text='.urlencode($person->name) }}" alt="{{ $person->name }}" class="staff-photo">
-                <div class="staff-name">{{ $person->name }}</div>
-                <div class="staff-position">{{ $person->position }}</div>
+                <div class="staff-name">{{ app()->getLocale() === 'en'
+                    ? ($person->name_en ?? $person->name)
+                    : $person->name }} </div>
+                <div class="staff-position">{{ app()->getLocale() === 'en'
+                    ? ($person->position_en ?? $person->position)
+                    : $person->position }} </div>
             </div>
             @empty
                 <p>Нет данных о персонале.</p>
@@ -699,17 +794,21 @@ body.dark-theme .theme-btn {
 
     <!-- Отзывы -->
     <section id="reviews">
-        <h2 class="section-title">Отзывы</h2>
+        <h2 class="section-title">{{ __('messages.reviews') }}</h2>
         <div class="reviews-grid">
             @forelse($reviews as $review)
             <div class="review-card">
-                <div class="review-author">{{ $review->author }}</div>
+                <div class="review-author">{{ app()->getLocale() === 'en'
+                    ? ($review->author_en ?? $review->author)
+                    : $review->author }} </div>
                 <div class="review-rating">
                     @for($i=1; $i<=5; $i++)
                         @if($i <= $review->rating) ★ @else ☆ @endif
                     @endfor
                 </div>
-                <div class="review-text">«{{ $review->text }}»</div>
+                <div class="review-text">«{{ app()->getLocale() === 'en'
+                    ? ($review->text_en ?? $review->text)
+                    : $review->text }} »</div>
             </div>
             @empty
                 <p>Пока нет отзывов.</p>
@@ -718,46 +817,14 @@ body.dark-theme .theme-btn {
     </section>
 </main>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo-click" id="adminSecretButton">Вкусно</div>
-        <div class="contacts-short">
-            улица Володарского, 19, Севастополь<br>
-            +7 (495) 123-45-67<br>
-            Пн–Вс: 12:00 – 00:00
-        </div>
-        
-    </div>
-</footer>
+@include('layouts.footer')
 
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    let clickCount = 0;
-    let timeoutId = null;
-    const logoBtn = document.getElementById('adminSecretButton');
-    const toast = document.getElementById('adminToast');
-
-    function showToastMessage(msg) {
-        toast.textContent = msg || '🔐 Админ-панель';
-        toast.style.opacity = '1';
-        setTimeout(() => { toast.style.opacity = '0'; }, 2000);
-    }
-
-    logoBtn.addEventListener('click', () => {
-        clickCount++;
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => { clickCount = 0; }, 1000);
-        
-        if (clickCount === 5) {
-            showToastMessage('✅ Перенаправление на страницу входа...');
-            window.location.href = "{{ route('admin.login') }}";
-            clickCount = 0;
-        }
-    });
-
+    
     // Инициализация слайдера Swiper с автопрокруткой
     document.addEventListener('DOMContentLoaded', function() {
         const swiper = new Swiper('.swiper', {
@@ -784,6 +851,13 @@ body.dark-theme .theme-btn {
     <button id="themeToggle" class="theme-btn" aria-label="Переключить тему">
         <span class="theme-icon-light">☀️</span>
         <span class="theme-icon-dark">🌙</span>
+    </button>
+</div>
+
+<!-- Переключатель языка -->
+<div class="language-switcher">
+    <button id="languageToggle" class="language-btn">
+        {{ app()->getLocale() === 'ru' ? 'RU' : 'EN' }}
     </button>
 </div>
 
@@ -846,6 +920,17 @@ window.addEventListener('resize', function() {
             item.classList.remove('active');
         });
     }
+});
+
+document.getElementById('languageToggle')?.addEventListener('click', function () {
+
+    const currentLocale = "{{ app()->getLocale() }}";
+
+    const newLocale = currentLocale === 'ru'
+        ? 'en'
+        : 'ru';
+
+    window.location.href = `/lang/${newLocale}`;
 });
 </script>
 </body>

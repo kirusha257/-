@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ресторан Вкусно | Мероприятия</title>
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <title>{{ __('messages.vkucno_events') }}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -206,20 +207,7 @@
     .social-link:hover {
         color: #d4af37;
     }
-        .footer {
-            background-color: #1a1a1a;
-            color: #cbc3b5;
-            padding: 2rem;
-            text-align: center;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        
         .contacts-short {
             position: absolute;
             left: 50%;
@@ -227,15 +215,7 @@
             text-align: center;
             font-size: 0.9rem;
         }
-        .footer-logo-click {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: #2a2a2a;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            user-select: none;
-        }
+        
         .admin-toast {
             position: fixed;
             bottom: 20px;
@@ -309,14 +289,7 @@ body.dark-theme .review-text {
     color: #b0b0b0;
 }
 
-body.dark-theme .footer {
-    background-color: #0d0d0d;
-}
 
-body.dark-theme .footer-logo-click {
-    background: #2a2a2a;
-    color: #c9a84c;
-}
 
 body.dark-theme .contacts-short {
     color: #a0a0a0;
@@ -600,7 +573,52 @@ body.dark-theme #eventModal {
         padding: 0.15rem 0.4rem;
     }
 }
+.language-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
 
+.language-btn {
+    background: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.language-btn:hover {
+    transform: scale(1.1);
+}
+body.dark-theme .language-btn {
+    background: #c9a84c;
+}
+
+@media (max-width: 768px) {
+
+    .language-switcher {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .language-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
 </style>
 </head>
 <body>
@@ -613,33 +631,33 @@ body.dark-theme #eventModal {
         <div class="nav">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="{{ route('home') }}">Главная</a>
+                    <a href="{{ route('home') }}">{{ __('messages.home') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('home') }}#about">О нас</a></li>
-                        <li><a href="{{ route('home') }}#staff">Персонал</a></li>
-                        <li><a href="{{ route('home') }}#reviews">Отзывы</a></li>
+                        <li><a href="{{ route('home') }}#about">{{ __('messages.about') }}</a></li>
+                        <li><a href="{{ route('home') }}#staff">{{ __('messages.staff') }}</a></li>
+                        <li><a href="{{ route('home') }}#reviews">{{ __('messages.reviews') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('menu') }}">Меню</a>
+                    <a href="{{ route('menu') }}">{{ __('messages.menu') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('menu') }}#best-dishes">Лучшие блюда</a></li>
-                        <li><a href="{{ route('menu') }}#full-menu">Меню</a></li>
+                        <li><a href="{{ route('menu') }}#best-dishes">{{ __('messages.best_dishes') }}</a></li>
+                        <li><a href="{{ route('menu') }}#full-menu">{{ __('messages.menu') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('events') }}">Мероприятия</a>
+                    <a href="{{ route('events') }}">{{ __('messages.events') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('events') }}#upcoming">Предстоящие</a></li>
-                        <li><a href="{{ route('events') }}#past">Прошедшие</a></li>
+                        <li><a href="{{ route('events') }}#upcoming">{{ __('messages.upcoming_events') }}</a></li>
+                        <li><a href="{{ route('events') }}#past">{{ __('messages.past_events') }}</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="{{ route('booking') }}">Заказ столика</a></li>
+                <li class="nav-item"><a href="{{ route('booking') }}">{{ __('messages.booking') }}</a></li>
                 <li class="nav-item">
-                    <a href="{{ route('contacts') }}">Контакты</a>
+                    <a href="{{ route('contacts') }}">{{ __('messages.contacts') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('contacts') }}#map">Схема проезда</a></li>
-                        <li><a href="{{ route('contacts') }}#feedback">Обратная связь</a></li>
+                        <li><a href="{{ route('contacts') }}#map">{{ __('messages.route_map') }}</a></li>
+                        <li><a href="{{ route('contacts') }}#feedback">{{ __('messages.feedback') }}</a></li>
                     </ul>
                 </li>
             </ul>
@@ -654,7 +672,7 @@ body.dark-theme #eventModal {
 <main class="container">
     <!-- Предстоящие мероприятия -->
     <section id="upcoming">
-        <h2 class="section-title">Предстоящие мероприятия</h2>
+        <h2 class="section-title">{{ __('messages.upcoming_events') }}</h2>
         
         @if($upcomingEvents->count() > 0)
             <div class="events-grid">
@@ -671,9 +689,17 @@ body.dark-theme #eventModal {
                                     <span style="margin-left: 10px;">🕐 {{ \Carbon\Carbon::parse($event->start_time)->format('H:i') }}</span>
                                 @endif
                             </div>
-                            <h3 class="event-title">{{ $event->title }}</h3>
-                            <p class="event-description">{{ $event->short_description }}</p>
-                            <a href="#" class="event-link" onclick="showEventDetails({{ $event->id }}, '{{ $event->title }}', '{{ $event->full_description ?? $event->short_description }}', '{{ \Carbon\Carbon::parse($event->date)->format('d.m.Y') }}@if($event->start_time) в {{ \Carbon\Carbon::parse($event->start_time)->format('H:i') }}@endif'); return false;">Подробнее →</a>
+                            <h3 class="event-title">{{ app()->getLocale() === 'en'
+                                ? ($event->title_en ?? $event->title)
+                                : $event->title }}</h3>
+                            <p class="event-description">{{ app()->getLocale() === 'en'
+                                ? ($event->short_description_en ?? $event->short_description)
+                                : $event->short_description }}</p>
+                            <a href="#" class="event-link"
+   data-title="{{ e(app()->getLocale() === 'en' ? ($event->title_en ?? $event->title) : $event->title) }}"
+   data-description="{{ e(app()->getLocale() === 'en' ? ($event->full_description_en ?? $event->short_description_en ?? $event->full_description ?? $event->short_description) : ($event->full_description ?? $event->short_description)) }}"
+   data-date="{{ e(\Carbon\Carbon::parse($event->date)->format('d.m.Y') . ($event->start_time ? ' в ' . \Carbon\Carbon::parse($event->start_time)->format('H:i') : '')) }}"
+   onclick="showEventDetails(this); return false;">Подробнее →</a>
                         </div>
                     </div>
                 @endforeach
@@ -688,7 +714,7 @@ body.dark-theme #eventModal {
 
     <!-- Прошедшие мероприятия -->
     <section id="past" class="past-section">
-        <h2 class="section-title">Прошедшие мероприятия</h2>
+        <h2 class="section-title">{{ __('messages.past_events') }}</h2>
         
         @if($pastEvents->count() > 0)
             <div class="events-grid">
@@ -700,8 +726,12 @@ body.dark-theme #eventModal {
                             <img src="https://placehold.co/400x180?text=Нет+фото" alt="Нет фото" class="event-photo">
                         @endif
                         <div class="event-content">
-                            <h3 class="event-title">{{ $event->title }}</h3>
-                            <p class="event-description">{{ $event->short_description }}</p>
+                            <h3 class="event-title">{{ app()->getLocale() === 'en'
+                                ? ($event->title_en ?? $event->title)
+                                : $event->title }} </h3>
+                            <p class="event-description">{{ app()->getLocale() === 'en'
+                                ? ($event->short_description_en ?? $event->short_description)
+                                : $event->short_description }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -714,17 +744,7 @@ body.dark-theme #eventModal {
     </section>
 </main>
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo-click" id="adminSecretButton">Вкусно</div>
-        <div class="contacts-short">
-            улица Володарского, 19, Севастополь<br>
-            +7 (495) 123-45-67<br>
-            Пн–Вс: 12:00 – 00:00
-        </div>
-        
-    </div>
-</footer>
+@include('layouts.footer')
 
 <div id="adminToast" class="admin-toast">🔐 Админ-панель</div>
 
@@ -739,35 +759,24 @@ body.dark-theme #eventModal {
 </div>
 
 <script>
-    let clickCount = 0;
-    let timeoutId = null;
-    const logoBtn = document.getElementById('adminSecretButton');
-    const toast = document.getElementById('adminToast');
+    
 
-    function showToastMessage(msg) {
-        toast.textContent = msg || '🔐 Админ-панель';
-        toast.style.opacity = '1';
-        setTimeout(() => { toast.style.opacity = '0'; }, 2000);
-    }
+    function showEventDetails(el) {
+    const link = el.closest('[data-title]');
+    
+    console.log('link:', link);
+    console.log('title:', link?.dataset.title);
+    console.log('description:', link?.dataset.description);
+    
+    const title = link.dataset.title;
+    const description = link.dataset.description;
+    const dateTime = link.dataset.date;
 
-    logoBtn.addEventListener('click', () => {
-        clickCount++;
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => { clickCount = 0; }, 1000);
-        
-        if (clickCount === 5) {
-            showToastMessage('✅ Перенаправление на страницу входа...');
-            window.location.href = "{{ route('admin.login') }}";
-            clickCount = 0;
-        }
-    });
-
-    function showEventDetails(id, title, description, dateTime) {
-        document.getElementById('modalDate').innerHTML = dateTime;
-        document.getElementById('modalTitle').innerHTML = title;
-        document.getElementById('modalDescription').innerHTML = description;
-        document.getElementById('eventModal').style.display = 'flex';
-    }
+    document.getElementById('modalDate').innerHTML = dateTime;
+    document.getElementById('modalTitle').innerHTML = title;
+    document.getElementById('modalDescription').innerHTML = description;
+    document.getElementById('eventModal').style.display = 'flex';
+}
 
     function closeModal() {
         document.getElementById('eventModal').style.display = 'none';
@@ -778,6 +787,13 @@ body.dark-theme #eventModal {
     <button id="themeToggle" class="theme-btn" aria-label="Переключить тему">
         <span class="theme-icon-light">☀️</span>
         <span class="theme-icon-dark">🌙</span>
+    </button>
+</div>
+
+<!-- Переключатель языка -->
+<div class="language-switcher">
+    <button id="languageToggle" class="language-btn">
+        {{ app()->getLocale() === 'ru' ? 'RU' : 'EN' }}
     </button>
 </div>
 
@@ -840,6 +856,17 @@ window.addEventListener('resize', function() {
             item.classList.remove('active');
         });
     }
+});
+
+document.getElementById('languageToggle')?.addEventListener('click', function () {
+
+    const currentLocale = "{{ app()->getLocale() }}";
+
+    const newLocale = currentLocale === 'ru'
+        ? 'en'
+        : 'ru';
+
+    window.location.href = `/lang/${newLocale}`;
 });
 </script>
 </body>

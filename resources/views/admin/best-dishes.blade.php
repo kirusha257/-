@@ -85,8 +85,8 @@
     <div class="dish-card">
         <img src="{{ $dish->image_url }}" alt="{{ $dish->title }}">
         <div class="dish-info">
-            <div class="dish-title">{{ $dish->title }}</div>
-            <div class="dish-desc">{{ $dish->description ?? '' }}</div>
+            <div class="dish-title">{{ $dish->localized_title }}</div>
+            <div class="dish-desc">{{ $dish->localized_description ?? '' }}</div>
             <div class="dish-price">{{ $dish->price ?? '' }}</div>
             <div class="dish-actions">
                 <form method="POST" action="{{ route('admin.best-dishes.update', $dish->id) }}" enctype="multipart/form-data" style="width: 100%;">

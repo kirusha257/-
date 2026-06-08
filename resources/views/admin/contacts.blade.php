@@ -41,13 +41,14 @@
         </div>
         <!-- Контактная информация -->
         <div class="card">
-            <div class="card__title">Контактная информация</div>
+    <div class="card__title">Контактная информация</div>
             <form method="POST" action="{{ route('admin.contacts.update') }}">
                 @csrf
                 <div class="form-grid form-grid--2">
                     <div class="field">
-                        <label class="field__label">Адрес</label>
+                        <label class="field__label">Адрес (RU)</label>
                         <input type="text" name="address" value="{{ $contacts->address ?? '' }}" placeholder="ул. Примерная, 1">
+                        <small style="color:#7a7670;">EN: {{ $contacts->address_en ?? '—' }}</small>
                     </div>
                     <div class="field">
                         <label class="field__label">Телефон</label>
@@ -58,8 +59,9 @@
                         <input type="email" name="email" value="{{ $contacts->email ?? '' }}" placeholder="info@restaurant.ru">
                     </div>
                     <div class="field">
-                        <label class="field__label">Часы работы</label>
+                        <label class="field__label">Часы работы (RU)</label>
                         <input type="text" name="work_hours" value="{{ $contacts->work_hours ?? '' }}" placeholder="Пн–Вс 12:00–23:00">
+                        <small style="color:#7a7670;">EN: {{ $contacts->work_hours_en ?? '—' }}</small>
                     </div>
                     <div class="field">
                         <label class="field__label">Координаты карты</label>

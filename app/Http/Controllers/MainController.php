@@ -23,29 +23,46 @@ use App\Mail\NewBookingMail;
 class MainController extends Controller
 {
     public function index()
-    {
-        // Кэшируем данные как массивы, чтобы избежать проблем с unserialize
-        $about = Cache::remember('home_about', 60, function () {
-            $data = AboutInfo::first();
-            return $data ? $data->toArray() : null;
-        });
-        
-        $staff = Cache::remember('home_staff', 60, function () {
-            return Staff::orderBy('sort_order')->get()->toArray();
-        });
-        
-        $reviews = Cache::remember('home_reviews', 60, function () {
-            return Review::where('is_approved', true)->latest()->take(6)->get()->toArray();
-        });
-        
-        // Преобразуем массивы обратно в объекты для удобства в шаблоне
-        $about = $about ? (object) $about : null;
-        $staff = collect($staff)->map(function($item) { return (object) $item; });
-        $reviews = collect($reviews)->map(function($item) { return (object) $item; });
-        $gallery = $this->getGallery();
-        
-        return view('home', compact('about', 'staff', 'reviews', 'gallery'));
-    }
+{
+    $about = Cache::remember('home_about', 60, function () {
+        $data = AboutInfo::first();
+        return $data ? $data->toArray() : null;
+    });
+
+    $staff = Cache::remember('home_staff', 60, function () {
+        return Staff::orderBy('sort_order')->get()->toArray();
+    });
+
+    $reviews = Cache::remember('home_reviews', 60, function () {
+        return Review::where('is_approved', true)
+            ->latest()
+            ->take(6)
+            ->get()
+            ->toArray();
+    });
+
+    $contact = Contact::first();
+
+    $about = $about ? (object) $about : null;
+
+    $staff = collect($staff)->map(function ($item) {
+        return (object) $item;
+    });
+
+    $reviews = collect($reviews)->map(function ($item) {
+        return (object) $item;
+    });
+
+    $gallery = $this->getGallery();
+
+    return view('home', compact(
+        'about',
+        'gallery',
+        'staff',
+        'reviews',
+        'contact'
+    ));
+}
     
     public function menu()
     {

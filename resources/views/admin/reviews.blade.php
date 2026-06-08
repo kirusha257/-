@@ -131,49 +131,52 @@
                         <th>Действия</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach($reviews as $review)
-                    <tr>
-                        <form method="POST" action="{{ route('admin.reviews.update', $review->id) }}" style="display:contents;">
-                            @csrf
-                            @method('PUT')
-                            <td><input type="text" name="author" value="{{ $review->author }}" size="14"></td>
-                            <td><textarea name="text">{{ $review->text }}</textarea></td>
-                            <td>
-                                <select name="rating">
-                                    @for($i=1;$i<=5;$i++)
-                                        <option value="{{ $i }}" {{ $review->rating==$i?'selected':'' }}>{{ $i }} ★</option>
-                                    @endfor
-                                </select>
-                            </td>
-                            <td>
-                                <div class="checkbox-row">
-                                    <input type="checkbox" name="is_approved" id="app_{{ $review->id }}" {{ $review->is_approved?'checked':'' }}>
-                                    <label for="app_{{ $review->id }}">
-                                        @if($review->is_approved)
-                                            <span class="badge badge--approved">Одобрен</span>
-                                        @else
-                                            <span class="badge badge--pending">На модерации</span>
-                                        @endif
-                                    </label>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="row-actions">
-                                    <button type="submit" class="btn btn--gold btn--sm">Сохранить</button>
-                                </div>
-                            </td>
-                        </form>
-                        <td style="border-left:1px solid var(--border);">
-                            <form method="POST" action="{{ route('admin.reviews.destroy', $review->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn--danger btn--sm" onclick="return confirm('Удалить отзыв?')">Удалить</button>
-                            </form>
+                    <tbody>
+                @foreach($reviews as $review)
+                <tr>
+                    <form method="POST" action="{{ route('admin.reviews.update', $review->id) }}" style="display:contents;">
+                        @csrf
+                        @method('PUT')
+                        <td><input type="text" name="author" value="{{ $review->author }}" size="14"></td>
+                        <td>
+                            <textarea name="text">{{ $review->text }}</textarea>
+                            <small style="display:block; color:#7a7670; margin-top:5px;">EN перевод: {{ $review->text_en ?? '—' }}</small>
                         </td>
-                    </tr>
-                    @endforeach
-                </tbody>
+                        <td>
+                            <select name="rating">
+                                @for($i=1;$i<=5;$i++)
+                                    <option value="{{ $i }}" {{ $review->rating==$i?'selected':'' }}>{{ $i }} ★</option>
+                                @endfor
+                            </select>
+                        </td>
+                        <td>
+                            <div class="checkbox-row">
+                                <input type="checkbox" name="is_approved" id="app_{{ $review->id }}" {{ $review->is_approved?'checked':'' }}>
+                                <label for="app_{{ $review->id }}">
+                                    @if($review->is_approved)
+                                        <span class="badge badge--approved">Одобрен</span>
+                                    @else
+                                        <span class="badge badge--pending">На модерации</span>
+                                    @endif
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row-actions">
+                                <button type="submit" class="btn btn--gold btn--sm">Сохранить</button>
+                            </div>
+                        </td>
+                    </form>
+                    <td style="border-left:1px solid var(--border);">
+                        <form method="POST" action="{{ route('admin.reviews.destroy', $review->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn--danger btn--sm" onclick="return confirm('Удалить отзыв?')">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
             </table>
             </div>
             @endif

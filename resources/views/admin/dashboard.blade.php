@@ -165,62 +165,75 @@
 
         <div class="section-label">Разделы</div>
         <div class="menu-grid">
-            <a href="{{ route('admin.about') }}" class="menu-card">
-                <div class="menu-card__icon">📝</div>
-                <div class="menu-card__label">О нас</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.staff') }}" class="menu-card">
-                <div class="menu-card__icon">👥</div>
-                <div class="menu-card__label">Персонал</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.reviews') }}" class="menu-card">
-                <div class="menu-card__icon">⭐</div>
-                <div class="menu-card__label">Отзывы</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.menu') }}" class="menu-card">
-                <div class="menu-card__icon">🍽️</div>
-                <div class="menu-card__label">Меню</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.events') }}" class="menu-card">
-                <div class="menu-card__icon">🎉</div>
-                <div class="menu-card__label">Мероприятия</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.bookings') }}" class="menu-card">
-                <div class="menu-card__icon">📅</div>
-                <div class="menu-card__label">Бронирования</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.contacts') }}" class="menu-card">
-                <div class="menu-card__icon">📞</div>
-                <div class="menu-card__label">Контакты</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.statistics') }}" class="menu-card">
-                <div class="menu-card__icon">📊</div>
-                <div class="menu-card__label">Статистика</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.gallery') }}" class="menu-card">
-                <div class="menu-card__icon">📸</div>
-                <div class="menu-card__label">Галерея</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.best-dishes') }}" class="menu-card">
-                <div class="menu-card__icon">⭐</div>
-                <div class="menu-card__label">Лучшие блюда</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-            <a href="{{ route('admin.admins') }}" class="menu-card">
-                <div class="menu-card__icon">👥</div>
-                <div class="menu-card__label">Администраторы</div>
-                <div class="menu-card__arrow">›</div>
-            </a>
-        </div>
+    @php
+        $adminId = session('admin_id');
+        $admin = \App\Models\Admin::find($adminId);
+        $isSuperAdmin = $admin && $admin->role === 'super_admin';
+    @endphp
+    
+    @if($isSuperAdmin)
+        <a href="{{ route('admin.about') }}" class="menu-card">
+            <div class="menu-card__icon">📝</div>
+            <div class="menu-card__label">О нас</div>
+            <div class="menu-card__arrow">›</div>
+        </a>
+        <a href="{{ route('admin.staff') }}" class="menu-card">
+            <div class="menu-card__icon">👥</div>
+            <div class="menu-card__label">Персонал</div>
+            <div class="menu-card__arrow">›</div>
+        </a>
+        <a href="{{ route('admin.reviews') }}" class="menu-card">
+            <div class="menu-card__icon">⭐</div>
+            <div class="menu-card__label">Отзывы</div>
+            <div class="menu-card__arrow">›</div>
+        </a>
+        <a href="{{ route('admin.contacts') }}" class="menu-card">
+            <div class="menu-card__icon">📞</div>
+            <div class="menu-card__label">Контакты</div>
+            <div class="menu-card__arrow">›</div>
+        </a>
+    @endif
+    
+    <!-- Доступно всем -->
+    <a href="{{ route('admin.menu') }}" class="menu-card">
+        <div class="menu-card__icon">🍽️</div>
+        <div class="menu-card__label">Меню</div>
+        <div class="menu-card__arrow">›</div>
+    </a>
+    <a href="{{ route('admin.events') }}" class="menu-card">
+        <div class="menu-card__icon">🎉</div>
+        <div class="menu-card__label">Мероприятия</div>
+        <div class="menu-card__arrow">›</div>
+    </a>
+    <a href="{{ route('admin.bookings') }}" class="menu-card">
+        <div class="menu-card__icon">📅</div>
+        <div class="menu-card__label">Бронирования</div>
+        <div class="menu-card__arrow">›</div>
+    </a>
+    <a href="{{ route('admin.statistics') }}" class="menu-card">
+        <div class="menu-card__icon">📊</div>
+        <div class="menu-card__label">Статистика</div>
+        <div class="menu-card__arrow">›</div>
+    </a>
+    <a href="{{ route('admin.gallery') }}" class="menu-card">
+        <div class="menu-card__icon">📸</div>
+        <div class="menu-card__label">Галерея</div>
+        <div class="menu-card__arrow">›</div>
+    </a>
+    <a href="{{ route('admin.best-dishes') }}" class="menu-card">
+        <div class="menu-card__icon">⭐</div>
+        <div class="menu-card__label">Лучшие блюда</div>
+        <div class="menu-card__arrow">›</div>
+    </a>
+    
+    @if($isSuperAdmin)
+        <a href="{{ route('admin.admins') }}" class="menu-card">
+            <div class="menu-card__icon">👥</div>
+            <div class="menu-card__label">Администраторы</div>
+            <div class="menu-card__arrow">›</div>
+        </a>
+    @endif
+</div>
     </div>
 </body>
 </html>

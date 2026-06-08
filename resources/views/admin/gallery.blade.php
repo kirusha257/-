@@ -87,27 +87,32 @@
         <div class="section-label">Все фотографии</div>
         <div class="gallery-grid">
             @foreach($gallery as $photo)
-            <div class="gallery-item">
-                <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
-                <div class="gallery-info">
-                    <strong>{{ $photo->title ?? 'Без названия' }}</strong>
-                    <p>{{ $photo->description ?? '' }}</p>
-                    <div class="gallery-actions">
-                        <form method="POST" action="{{ route('admin.gallery.update', $photo->id) }}" enctype="multipart/form-data" style="display: inline;">
-                            @csrf
-                            @method('PUT')
-                            <input type="file" name="image" style="display: none;" id="file-{{ $photo->id }}" onchange="this.form.submit()">
-                            <button type="button" class="btn btn--gold btn--sm" onclick="document.getElementById('file-{{ $photo->id }}').click()">Заменить</button>
-                        </form>
-                        <form method="POST" action="{{ route('admin.gallery.destroy', $photo->id) }}" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn--danger btn--sm" onclick="return confirm('Удалить фото?')">Удалить</button>
-                        </form>
+                <div class="gallery-item">
+                    <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
+                    <div class="gallery-info">
+                        <strong>{{ $photo->title ?? 'Без названия' }}</strong>
+                        <small style="display:block; color:#7a7670;">EN: {{ $photo->title_en ?? '—' }}</small>
+                        <p>{{ $photo->description ?? '' }}</p>
+                        <small style="display:block; color:#7a7670;">EN desc: {{ $photo->description_en ?? '—' }}</small>
+                        <div class="gallery-actions">
+                            <form method="POST" action="{{ route('admin.gallery.update', $photo->id) }}" enctype="multipart/form-data" style="display: inline;">
+                                @csrf
+                                @method('PUT')
+                                <input type="text" name="title" value="{{ $photo->title }}" placeholder="Название RU" style="width:100%; margin-bottom:5px;">
+                                <input type="text" name="description" value="{{ $photo->description }}" placeholder="Описание RU" style="width:100%; margin-bottom:5px;">
+                                <input type="file" name="image" style="display: none;" id="file-{{ $photo->id }}" onchange="this.form.submit()">
+                                <button type="button" class="btn btn--gold btn--sm" onclick="document.getElementById('file-{{ $photo->id }}').click()">Заменить</button>
+                                <button type="submit" class="btn btn--gold btn--sm">Обновить</button>
+                            </form>
+                            <form method="POST" action="{{ route('admin.gallery.destroy', $photo->id) }}" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn--danger btn--sm" onclick="return confirm('Удалить фото?')">Удалить</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endforeach
+                @endforeach
         </div>
     </div>
 </body>
